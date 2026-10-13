@@ -7,8 +7,8 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
 const LIVE = {
-  scanner: "https://cryptogeadas.github.io/defi-yield-scanner/data/latest.json",
-  rwa: "https://cryptogeadas.github.io/tokenized-rwa-tracker/data/latest.json",
+  scanner: "https://bernardogeadas.com/defi-yield-scanner/data/latest.json",
+  rwa: "https://bernardogeadas.com/tokenized-rwa-tracker/data/latest.json",
 };
 
 /* ---- theme --------------------------------------------------------------- */
