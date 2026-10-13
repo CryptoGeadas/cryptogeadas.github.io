@@ -81,12 +81,15 @@ p { margin: 0; }
 .section { padding-block: var(--pad-y); border-bottom: 1px solid var(--border); }
 .accent { color: var(--accent); }
 .muted { color: var(--muted); }
+.fg { color: var(--fg); }
 .mono { font-family: var(--font-mono); }
 
 /* Section label: "01 / ABOUT" */
 .label {
   font-family: var(--font-mono);
   font-size: 12px;
+  font-weight: 400;             /* also when used on an h2 */
+  line-height: 1.6;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   color: var(--muted);
@@ -99,7 +102,9 @@ p { margin: 0; }
   border-radius: var(--r-panel);
   overflow: hidden;
 }
-.panel > * + * { border-top: 1px solid var(--border); }
+.panel.rows > * + * { border-top: 1px solid var(--border); }   /* stacked rows with hairlines */
+a.panel { color: var(--fg); transition: border-color 150ms ease; }
+a.panel:hover { border-color: var(--accent); color: var(--fg); }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -390,3 +395,85 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .contact-list .v { display: flex; gap: 8px; min-width: 0; }
 .contact-list .v span:first-child { overflow-wrap: anywhere; }
 .contact-list .v span:last-child { flex: none; }
+
+/* ---- inner pages (build log, article, tool shell) ------------------------ */
+.page-main { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad-x); }
+.breadcrumb {
+  display: flex; flex-wrap: wrap; gap: 4px 10px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.22em;
+  color: var(--muted);
+}
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb [aria-current="page"] { color: var(--fg); }
+
+.page-intro { display: flex; flex-direction: column; gap: 22px; padding: clamp(40px, 6vw, 64px) 0 clamp(40px, 5vw, 56px); }
+.page-intro .standfirst { font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 620px; text-wrap: pretty; }
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 6px; font-family: var(--font-mono); font-size: 13px; }
+
+.log-section { display: flex; flex-direction: column; gap: 24px; padding: clamp(40px, 5vw, 56px) 0; border-top: 1px solid var(--border); }
+.log-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
+.log-head .note { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.card-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; }
+
+/* Live tool panel */
+.tool-panel { display: flex; flex-direction: column; }
+.tool-panel-bar {
+  display: flex; justify-content: space-between; gap: 12px;
+  padding: 12px 22px; border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+}
+.tool-panel-body { display: flex; flex-direction: column; gap: 16px; flex: 1; padding: 24px 22px; }
+.tool-panel h3 { font-size: 26px; }
+.tool-q { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--fg); text-wrap: pretty; }
+.tool-desc { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.tool-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px; }
+
+/* Research panel link */
+.research-panel {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 24px 48px; align-items: center;
+  padding: clamp(22px, 4vw, 40px);
+}
+.research-copy { display: flex; flex-direction: column; gap: 16px; }
+.research-copy .badge { align-self: flex-start; }
+.research-copy h3 { font-size: clamp(30px, 4vw, 44px); line-height: 1.05; }
+.research-copy p { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.stat-pair {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--border); border-radius: var(--r-panel); overflow: hidden;
+  font-family: var(--font-mono);
+}
+.stat-pair > div { display: flex; flex-direction: column; gap: 6px; padding: 20px; }
+.stat-pair > div + div { border-left: 1px solid var(--border); }
+.stat-pair .k { font-size: 11px; letter-spacing: 0.22em; color: var(--muted); }
+.stat-pair .v { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; }
+
+/* Shelved cards */
+.shelved-card {
+  display: flex; flex-direction: column; gap: 16px;
+  padding: 24px 22px;
+  border: 1px dashed var(--border); border-radius: var(--r-panel);
+}
+.shelved-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.shelved-card h3 {
+  font-size: 24px; color: var(--muted);
+  text-decoration: line-through; text-decoration-color: var(--down); text-decoration-thickness: 2px;
+}
+.shelved-card p { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.verdict-block { display: flex; flex-direction: column; gap: 6px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); }
+.verdict-block .label { font-size: 11px; }
+.verdict-block p { font-family: var(--font-mono); font-size: 14px; line-height: 1.55; color: var(--fg); }
+
+/* How I build */
+.how { display: flex; flex-direction: column; gap: 28px; padding: clamp(48px, 6vw, 72px) 0; border-top: 1px solid var(--border); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); margin: 0; padding: 0; list-style: none; }
+.steps li {
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 28px 24px;
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  margin: 0 -1px -1px 0;
+}
+.steps .n { font-family: var(--font-mono); font-size: 28px; color: var(--accent); line-height: 1.2; }
+.steps h3 { font-size: 22px; }
+.steps p { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }

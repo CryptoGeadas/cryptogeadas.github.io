@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,10 @@
   <title>Build Log · Bernardo Geadas</title>
   <meta name="description" content="The DeFi and RWA tools Bernardo Geadas builds: what's live, what became research, and what was killed on purpose.">
   <meta name="theme-color" content="#0c110e">
-  <script>document.documentElement.className=document.documentElement.className.replace("no-js","js")</script>
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/brand.css">
-  <link rel="stylesheet" href="/legacy.css">
   <link rel="stylesheet" href="/site.css">
 </head>
 <body>
@@ -41,102 +38,113 @@
     </div>
   </header>
 
-  <main id="main">
-    <section class="hero short">
-      <canvas class="field" data-strength="0.8" aria-hidden="true"></canvas>
-      <div class="wrap hero-inner">
-        <div class="crumbs"><a href="/">HOME</a><span aria-hidden="true">/</span><span data-scramble>BUILD LOG</span></div>
-        <h1 class="page-title reveal">The build log.</h1>
-        <p class="page-dek serif reveal" data-d="1">Tools for questions I actually have as a DeFi user, including the ones I killed.</p>
+  <main id="main" class="page-main">
+    <section class="page-intro" aria-labelledby="log-title">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">HOME</a><span aria-hidden="true">/</span><span aria-current="page">BUILD LOG</span></nav>
+      <h1 id="log-title">The build <span class="accent">log.</span></h1>
+      <p class="standfirst">Tools for questions I actually have as a DeFi user, including the ones I killed.</p>
+      <div class="meta-row">
+        <span><span class="accent">crypto-tools</span> <span class="muted">· Personal batch, started Sep 2026</span></span>
+        <span class="muted"><span class="up">3</span> live · <span class="fg">1</span> research · <span class="down">2</span> shelved</span>
       </div>
     </section>
 
-    <section class="block wrap" id="log" style="padding-top:24px">
-      <div class="tree">
-        <div class="n root reveal" data-node="root">
-          <div class="root-node">
-            <img src="/logo.svg" alt="" width="55" height="37">
-            <b>crypto-tools</b>
-            <small>Personal batch, started Sep 2026</small>
+    <section class="log-section" aria-labelledby="live-title">
+      <div class="log-head">
+        <h2 class="label" id="live-title">01 / Live tools</h2>
+        <p class="note"><span class="up">●</span> Refreshed automatically from DefiLlama</p>
+      </div>
+      <div class="card-grid-wide">
+        <article class="panel tool-panel">
+          <div class="tool-panel-bar"><span>/defi-yield-scanner/</span><span class="accent">● LIVE</span></div>
+          <div class="tool-panel-body">
+            <h3>DeFi Yield Scanner</h3>
+            <p class="tool-q">"Where can I park my stables right now, and is that yield real?"</p>
+            <p class="tool-desc">A trust filter, not a yield hunter. It screens every stablecoin pool DefiLlama tracks against a hand-kept list of trusted protocols and stablecoins, then ranks by durable, organic yield. A high APY counts as a red flag as often as an opportunity.</p>
+            <div class="tool-actions">
+              <a class="btn btn-primary btn-sm" href="/defi-yield-scanner/">Open tool →</a>
+              <a class="btn btn-sm" href="/defi-yield-scanner/methodology.html">Methodology</a>
+              <a class="btn btn-sm" href="https://github.com/CryptoGeadas/defi-yield-scanner" rel="noopener" target="_blank">Source ↗</a>
+            </div>
           </div>
-        </div>
-
-        <!-- LIVE -->
-        <div class="n branch reveal" data-node="live" data-parent="root" data-hot>
-          <b>Live tools</b><small>Refreshed automatically from DefiLlama</small>
-        </div>
-        <div class="leaves">
-          <article class="n leaf live reveal" data-parent="live" data-hot>
-            <div class="top"><h3>DeFi Yield Scanner</h3><span class="badge badge-success">Live</span></div>
-            <p class="q">"Where can I park my stables right now, and is that yield real?"</p>
-            <p>A trust filter, not a yield hunter. It screens every stablecoin pool DefiLlama tracks against a hand-kept list of trusted protocols and stablecoins, then ranks by durable, organic yield. A high APY counts as a red flag as often as an opportunity.</p>
-            <div class="livebit"><span data-live="scanner-kept"></span> <span data-live="scanner-age"></span></div>
-            <div class="links">
-              <a class="btn btn-primary btn-sm" href="/defi-yield-scanner/">Open tool</a>
-              <a class="btn btn-ghost btn-sm" href="/defi-yield-scanner/methodology.html">Methodology</a>
-              <a class="btn btn-ghost btn-sm" href="https://github.com/CryptoGeadas/defi-yield-scanner" rel="noopener">Source</a>
+        </article>
+        <article class="panel tool-panel">
+          <div class="tool-panel-bar"><span>/tokenized-rwa-tracker/</span><span class="accent">● LIVE</span></div>
+          <div class="tool-panel-body">
+            <h3>Tokenized RWA Tracker</h3>
+            <p class="tool-q">"I want to park euros or dollars in real-world yield. Show me what's real, what's risky and what's fake."</p>
+            <p class="tool-desc">Classifies tokenized funds by what actually backs them (government debt, private credit, basis trades and more), gives each a trust tier, and flags products whose label doesn't match what they hold. New products above $5M TVL surface automatically as "unclassified" until reviewed.</p>
+            <div class="tool-actions">
+              <a class="btn btn-primary btn-sm" href="/tokenized-rwa-tracker/">Open tool →</a>
+              <a class="btn btn-sm" href="/tokenized-rwa-tracker/methodology.html">Methodology</a>
+              <a class="btn btn-sm" href="https://github.com/CryptoGeadas/tokenized-rwa-tracker" rel="noopener" target="_blank">Source ↗</a>
             </div>
-          </article>
-          <article class="n leaf live reveal" data-d="1" data-parent="live" data-hot>
-            <div class="top"><h3>Tokenized RWA Tracker</h3><span class="badge badge-success">Live</span></div>
-            <p class="q">"I want to park euros or dollars in real-world yield. Show me what's real, what's risky and what's fake."</p>
-            <p>Classifies tokenized funds by what actually backs them (government debt, private credit, basis trades and more), gives each a trust tier, and flags products whose label doesn't match what they hold. New products above $5M TVL surface automatically as "unclassified" until reviewed.</p>
-            <div class="livebit"><span data-live="rwa-count"></span> <span data-live="rwa-age"></span></div>
-            <div class="links">
-              <a class="btn btn-primary btn-sm" href="/tokenized-rwa-tracker/">Open tool</a>
-              <a class="btn btn-ghost btn-sm" href="/tokenized-rwa-tracker/methodology.html">Methodology</a>
-              <a class="btn btn-ghost btn-sm" href="https://github.com/CryptoGeadas/tokenized-rwa-tracker" rel="noopener">Source</a>
+          </div>
+        </article>
+        <article class="panel tool-panel">
+          <div class="tool-panel-bar"><span>/crypto-fundamentals/</span><span class="accent">● LIVE</span></div>
+          <div class="tool-panel-body">
+            <h3>Crypto Fundamentals</h3>
+            <p class="tool-q">"What am I actually buying?"</p>
+            <p class="tool-desc">Type a ticker and see a token's fundamentals in one place: valuation against its peers, traction, value accrual, dilution and unlocks, holder concentration, treasury, security and development activity. Each number is rated from very low to very high by fixed, visible rules. Free public data, runs in your browser, no AI.</p>
+            <div class="tool-actions">
+              <a class="btn btn-primary btn-sm" href="/crypto-fundamentals/">Open tool →</a>
+              <a class="btn btn-sm" href="/crypto-fundamentals/methodology.html">Methodology</a>
+              <a class="btn btn-sm" href="https://github.com/CryptoGeadas/crypto-fundamentals" rel="noopener" target="_blank">Source ↗</a>
             </div>
-          </article>
-        </div>
-
-        <div class="group-gap" aria-hidden="true"></div>
-
-        <!-- RESEARCH -->
-        <div class="n branch reveal" data-node="research" data-parent="root">
-          <b>Research</b><small>When the answer is a finding, not a tool</small>
-        </div>
-        <div class="leaves">
-          <article class="n leaf reveal" data-parent="research">
-            <div class="top"><h3>Unlocks Don't Dump</h3><span class="badge badge-accent">Research</span></div>
-            <p>669 meaningful token unlocks, measured against BTC and against each token's own normal trend. The extra drop an unlock causes comes out at +0.2%, which is indistinguishable from zero. "Sell before the unlock" doesn't survive a baseline control.</p>
-            <div class="links">
-              <a class="btn btn-primary btn-sm" href="/research/unlocks-dont-dump/">Read it</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="group-gap" aria-hidden="true"></div>
-
-        <!-- KILLED -->
-        <div class="n branch reveal" data-node="killed" data-parent="root">
-          <b>Killed on purpose</b><small>Prototyped on real data, then stopped</small>
-        </div>
-        <div class="leaves">
-          <article class="n leaf dead reveal" data-parent="killed">
-            <div class="top"><h3>Correlation Heatmap</h3><span class="badge badge-warning">Shelved</span></div>
-            <p>The idea: find crypto assets that diversify away from BTC. On a year of real data, the only things that did were stablecoins and gold. Every risk asset sat between 0.66 and 0.92 correlation.</p>
-            <p class="verdict"><b>Verdict</b>The tool's only honest answer was "hold cash", which isn't worth building a tool for.</p>
-          </article>
-          <article class="n leaf dead reveal" data-d="1" data-parent="killed">
-            <div class="top"><h3>Token Unlock vs Price</h3><span class="badge badge-warning">Shelved</span></div>
-            <p>The idea: a calendar of upcoming unlocks with the expected price reaction. On 22,168 historical unlock events, the reaction turned out to be the token's normal drift, not the unlock. What was left was about as predictive as a coin flip.</p>
-            <p class="verdict"><b>Verdict</b>No tool, but the finding became the research piece above.</p>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="block wrap" style="padding-top:0">
-      <div class="sec-head">
-        <span class="idx" data-scramble>HOW I BUILD</span>
-        <h2 class="reveal">Same pattern, every tool.</h2>
+    <section class="log-section" aria-labelledby="research-title">
+      <div class="log-head">
+        <h2 class="label" id="research-title">02 / Research</h2>
+        <p class="note">When the answer is a finding, not a tool</p>
       </div>
-      <div class="method">
-        <div class="card reveal"><b>01</b><h3>Grill the idea</h3><p>Before any code, I question the idea hard: who decides what with it, and what it has to beat to be worth using.</p></div>
-        <div class="card reveal" data-d="1"><b>02</b><h3>Prototype on real data</h3><p>A throwaway probe on live data with a go/no-go test. Two of the four ideas so far stopped here.</p></div>
-        <div class="card reveal" data-d="2"><b>03</b><h3>Ship small and automated</h3><p>A scheduled job pulls DefiLlama, a pure pipeline applies the opinion, and a static site publishes it. Everything is open source.</p></div>
+      <a class="panel research-panel" href="/research/unlocks-dont-dump/">
+        <div class="research-copy">
+          <span class="badge badge-muted">Research</span>
+          <h3>Unlocks Don't Dump</h3>
+          <p>669 meaningful token unlocks, measured against BTC and against each token's own normal trend. The extra drop an unlock causes comes out at +0.2%, which is indistinguishable from zero. "Sell before the unlock" doesn't survive a baseline control.</p>
+          <span class="link-action">Read it →</span>
+        </div>
+        <div class="stat-pair">
+          <div><span class="k">UNLOCKS</span><span class="v">669</span></div>
+          <div><span class="k">EXCESS RETURN</span><span class="v up">+0.2%</span></div>
+        </div>
+      </a>
+    </section>
+
+    <section class="log-section" aria-labelledby="shelved-title">
+      <div class="log-head">
+        <h2 class="label" id="shelved-title">03 / Shelved on purpose</h2>
+        <p class="note">Prototyped on real data, then stopped</p>
       </div>
+      <div class="card-grid-wide">
+        <article class="shelved-card">
+          <div class="shelved-top"><h3>Correlation Heatmap</h3><span class="badge badge-down">Shelved</span></div>
+          <p>The idea: find crypto assets that diversify away from BTC. On a year of real data, the only things that did were stablecoins and gold. Every risk asset sat between 0.66 and 0.92 correlation.</p>
+          <div class="verdict-block"><span class="label">Verdict</span><p>The tool's only honest answer was "hold cash", which isn't worth building a tool for.</p></div>
+        </article>
+        <article class="shelved-card">
+          <div class="shelved-top"><h3>Token Unlock vs Price</h3><span class="badge badge-down">Shelved</span></div>
+          <p>The idea: a calendar of upcoming unlocks with the expected price reaction. On 22,168 historical unlock events, the reaction turned out to be the token's normal drift, not the unlock. What was left was about as predictive as a coin flip.</p>
+          <div class="verdict-block"><span class="label">Verdict</span><p>No tool, but the finding became the research piece above.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="how" aria-labelledby="how-title">
+      <div class="section-head">
+        <p class="label">How I build</p>
+        <h2 id="how-title">Same pattern, every tool.</h2>
+      </div>
+      <ol class="panel steps">
+        <li><span class="n">01</span><h3>Grill the idea</h3><p>Before any code, I question the idea hard: who decides what with it, and what it has to beat to be worth using.</p></li>
+        <li><span class="n">02</span><h3>Prototype on real data</h3><p>A throwaway probe on live data with a go/no-go test. Two of the four ideas so far stopped here.</p></li>
+        <li><span class="n">03</span><h3>Ship small and automated</h3><p>A scheduled job pulls DefiLlama, a pure pipeline applies the opinion, and a static site publishes it. Everything is open source.</p></li>
+      </ol>
     </section>
   </main>
 
