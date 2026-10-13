@@ -303,9 +303,10 @@ async function initTicker() {
   const oldest = times.length ? new Date(Math.min(...times)) : null;
   const stale = !oldest || times.length < 2 || Date.now() - oldest > STALE_MS;
   if (timeEl) {
-    timeEl.textContent = `● ${oldest ? fmtUTC(oldest) : "—"}`;
+    // "Data updated" on wide screens, "Updated" on phones (CSS picks one)
+    timeEl.innerHTML = `● <span class="tl-long">Data updated</span><span class="tl-short">Updated</span> ${oldest ? fmtUTC(oldest) : "—"}`;
     timeEl.classList.toggle("stale", stale);
-    if (oldest) timeEl.title = `Oldest tool refresh: ${oldest.toISOString()}`;
+    timeEl.title = "Time of the oldest refresh across my tools";
   }
   const asof = $("[data-live-asof]");
   if (asof && oldest) asof.textContent = `Data as of ${fmtUTC(oldest)} · `;
