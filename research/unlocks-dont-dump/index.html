@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,39 +9,45 @@
   <meta property="og:title" content="Unlocks Don't Dump">
   <meta property="og:description" content="An event study of 669 token unlocks: the drop was already happening.">
   <meta property="og:type" content="article">
-  <meta name="theme-color" content="#0E1118">
-  <script>(function(d){d.className=d.className.replace("no-js","js");try{d.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){d.dataset.theme="dark"}})(document.documentElement)</script>
-  <link rel="icon" href="../../logo.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c110e">
+  <script>document.documentElement.className=document.documentElement.className.replace("no-js","js")</script>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../brand.css">
-  <link rel="stylesheet" href="../../site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand.css">
+  <link rel="stylesheet" href="/legacy.css">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
-  <a class="skip btn btn-primary btn-sm" href="#article">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="nav">
-    <div class="wrap">
-      <a class="brandlink" href="../../" aria-label="Bernardo Geadas, home">
-        <img src="../../logo.svg" alt="" width="37" height="25"><span>Bernardo Geadas</span>
-      </a>
-      <nav class="navlinks" aria-label="Main">
-        <a class="opt" href="../../#about">About</a>
-        <a class="opt" href="../../#experience">Experience</a>
-        <a href="../../tools/">Tools</a>
-        <a class="opt" href="../../#contact">Contact</a>
-        <button id="theme" class="btn btn-ghost btn-sm theme-btn" aria-label="Toggle light and dark theme">
-          <span class="theme-dark" aria-hidden="true">&#9790;</span><span class="theme-light" aria-hidden="true">&#9728;</span>
-        </button>
+  <header class="site-header">
+    <div class="ticker" aria-label="Live numbers from my tools">
+      <span class="ticker-label">LIVE</span>
+      <div class="ticker-items" data-ticker>
+        <a class="ticker-item" href="/defi-yield-scanner/" data-tick="scanner"><span class="k">Best stable yield</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-count"><span class="k">RWA products tracked</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-unclassified"><span class="k">Unclassified, in review</span><span class="v">—</span><span class="n"></span></a>
+      </div>
+      <span class="ticker-time" data-live-time>● —</span>
+    </div>
+    <div class="site-nav-row">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#about">About</a>
+        <a href="/#experience">Experience</a>
+        <a href="/tools/" aria-current="page">Tools</a>
+        <a href="/#contact">Contact</a>
       </nav>
+      <span class="site-tagline">PRODUCT × PARTNERSHIPS × COMPLIANCE</span>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero short" style="min-height:auto">
       <div class="wrap hero-inner" style="padding-bottom:24px">
-        <div class="crumbs"><a href="../../">HOME</a><span aria-hidden="true">/</span><a href="../../tools/">BUILD LOG</a><span aria-hidden="true">/</span><span data-scramble>RESEARCH</span></div>
+        <div class="crumbs"><a href="/">HOME</a><span aria-hidden="true">/</span><a href="/tools/">BUILD LOG</a><span aria-hidden="true">/</span><span data-scramble>RESEARCH</span></div>
         <h1 class="page-title reveal">Unlocks Don't Dump.</h1>
         <p class="page-dek serif reveal" data-d="1">The most repeated rule in crypto, "sell before the token unlock", doesn't survive a baseline control.</p>
         <p class="byline muted reveal" data-d="2" style="margin-top:24px;font-size:13.5px">Bernardo Geadas · 17 September 2026 · Data: DefiLlama emissions and prices, 2020–2026</p>
@@ -111,13 +117,24 @@
     </article>
   </main>
 
-  <footer class="foot">
-    <div class="wrap">
-      <span>© <span id="yr">2026</span> Bernardo Geadas</span>
-      <a href="../../tools/">Back to the build log</a>
+  <footer class="site-footer">
+    <div class="site-footer-top">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="/tools/">Tools</a>
+        <a href="/research/unlocks-dont-dump/">Research</a>
+        <a href="mailto:bernardofgeadasj@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/bernardo-geadas" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://github.com/CryptoGeadas" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://x.com/Bernardo_Geadas" rel="noopener" target="_blank">X</a>
+      </nav>
+    </div>
+    <div class="site-footer-bottom">
+      <span class="data-line"><span class="dot" data-live-dot>●</span> Data: DefiLlama emissions and prices, 2020–2026 · Research, not financial advice</span>
+      <span class="credit">© 2026 Bernardo Geadas · Built by hand, no frameworks.</span>
     </div>
   </footer>
 
-  <script src="../../site.js" type="module"></script>
+  <script src="/site.js" type="module"></script>
 </body>
 </html>

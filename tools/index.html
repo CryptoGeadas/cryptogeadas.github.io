@@ -1,45 +1,51 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Build Log · Bernardo Geadas</title>
   <meta name="description" content="The DeFi and RWA tools Bernardo Geadas builds: what's live, what became research, and what was killed on purpose.">
-  <meta name="theme-color" content="#0E1118">
-  <script>(function(d){d.className=d.className.replace("no-js","js");try{d.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){d.dataset.theme="dark"}})(document.documentElement)</script>
-  <link rel="icon" href="../logo.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c110e">
+  <script>document.documentElement.className=document.documentElement.className.replace("no-js","js")</script>
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../brand.css">
-  <link rel="stylesheet" href="../site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand.css">
+  <link rel="stylesheet" href="/legacy.css">
+  <link rel="stylesheet" href="/site.css">
 </head>
 <body>
-  <a class="skip btn btn-primary btn-sm" href="#log">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="nav">
-    <div class="wrap">
-      <a class="brandlink" href="../" aria-label="Bernardo Geadas, home">
-        <img src="../logo.svg" alt="" width="37" height="25"><span>Bernardo Geadas</span>
-      </a>
-      <nav class="navlinks" aria-label="Main">
-        <a class="opt" href="../#about">About</a>
-        <a class="opt" href="../#experience">Experience</a>
-        <a href="./" aria-current="page">Tools</a>
-        <a class="opt" href="../#contact">Contact</a>
-        <button id="theme" class="btn btn-ghost btn-sm theme-btn" aria-label="Toggle light and dark theme">
-          <span class="theme-dark" aria-hidden="true">&#9790;</span><span class="theme-light" aria-hidden="true">&#9728;</span>
-        </button>
+  <header class="site-header">
+    <div class="ticker" aria-label="Live numbers from my tools">
+      <span class="ticker-label">LIVE</span>
+      <div class="ticker-items" data-ticker>
+        <a class="ticker-item" href="/defi-yield-scanner/" data-tick="scanner"><span class="k">Best stable yield</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-count"><span class="k">RWA products tracked</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-unclassified"><span class="k">Unclassified, in review</span><span class="v">—</span><span class="n"></span></a>
+      </div>
+      <span class="ticker-time" data-live-time>● —</span>
+    </div>
+    <div class="site-nav-row">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#about">About</a>
+        <a href="/#experience">Experience</a>
+        <a href="/tools/" aria-current="page">Tools</a>
+        <a href="/#contact">Contact</a>
       </nav>
+      <span class="site-tagline">PRODUCT × PARTNERSHIPS × COMPLIANCE</span>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero short">
       <canvas class="field" data-strength="0.8" aria-hidden="true"></canvas>
       <div class="wrap hero-inner">
-        <div class="crumbs"><a href="../">HOME</a><span aria-hidden="true">/</span><span data-scramble>BUILD LOG</span></div>
+        <div class="crumbs"><a href="/">HOME</a><span aria-hidden="true">/</span><span data-scramble>BUILD LOG</span></div>
         <h1 class="page-title reveal">The build log.</h1>
         <p class="page-dek serif reveal" data-d="1">Tools for questions I actually have as a DeFi user, including the ones I killed.</p>
       </div>
@@ -49,7 +55,7 @@
       <div class="tree">
         <div class="n root reveal" data-node="root">
           <div class="root-node">
-            <img src="../logo.svg" alt="" width="55" height="37">
+            <img src="/logo.svg" alt="" width="55" height="37">
             <b>crypto-tools</b>
             <small>Personal batch, started Sep 2026</small>
           </div>
@@ -66,8 +72,8 @@
             <p>A trust filter, not a yield hunter. It screens every stablecoin pool DefiLlama tracks against a hand-kept list of trusted protocols and stablecoins, then ranks by durable, organic yield. A high APY counts as a red flag as often as an opportunity.</p>
             <div class="livebit"><span data-live="scanner-kept"></span> <span data-live="scanner-age"></span></div>
             <div class="links">
-              <a class="btn btn-primary btn-sm" href="https://bernardogeadas.com/defi-yield-scanner/">Open tool</a>
-              <a class="btn btn-ghost btn-sm" href="https://bernardogeadas.com/defi-yield-scanner/methodology.html">Methodology</a>
+              <a class="btn btn-primary btn-sm" href="/defi-yield-scanner/">Open tool</a>
+              <a class="btn btn-ghost btn-sm" href="/defi-yield-scanner/methodology.html">Methodology</a>
               <a class="btn btn-ghost btn-sm" href="https://github.com/CryptoGeadas/defi-yield-scanner" rel="noopener">Source</a>
             </div>
           </article>
@@ -77,8 +83,8 @@
             <p>Classifies tokenized funds by what actually backs them (government debt, private credit, basis trades and more), gives each a trust tier, and flags products whose label doesn't match what they hold. New products above $5M TVL surface automatically as "unclassified" until reviewed.</p>
             <div class="livebit"><span data-live="rwa-count"></span> <span data-live="rwa-age"></span></div>
             <div class="links">
-              <a class="btn btn-primary btn-sm" href="https://bernardogeadas.com/tokenized-rwa-tracker/">Open tool</a>
-              <a class="btn btn-ghost btn-sm" href="https://bernardogeadas.com/tokenized-rwa-tracker/methodology.html">Methodology</a>
+              <a class="btn btn-primary btn-sm" href="/tokenized-rwa-tracker/">Open tool</a>
+              <a class="btn btn-ghost btn-sm" href="/tokenized-rwa-tracker/methodology.html">Methodology</a>
               <a class="btn btn-ghost btn-sm" href="https://github.com/CryptoGeadas/tokenized-rwa-tracker" rel="noopener">Source</a>
             </div>
           </article>
@@ -95,7 +101,7 @@
             <div class="top"><h3>Unlocks Don't Dump</h3><span class="badge badge-accent">Research</span></div>
             <p>669 meaningful token unlocks, measured against BTC and against each token's own normal trend. The extra drop an unlock causes comes out at +0.2%, which is indistinguishable from zero. "Sell before the unlock" doesn't survive a baseline control.</p>
             <div class="links">
-              <a class="btn btn-primary btn-sm" href="../research/unlocks-dont-dump/">Read it</a>
+              <a class="btn btn-primary btn-sm" href="/research/unlocks-dont-dump/">Read it</a>
             </div>
           </article>
         </div>
@@ -134,13 +140,24 @@
     </section>
   </main>
 
-  <footer class="foot">
-    <div class="wrap">
-      <span>© <span id="yr">2026</span> Bernardo Geadas</span>
-      <a href="../">Back to home</a>
+  <footer class="site-footer">
+    <div class="site-footer-top">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="/tools/">Tools</a>
+        <a href="/research/unlocks-dont-dump/">Research</a>
+        <a href="mailto:bernardofgeadasj@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/bernardo-geadas" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://github.com/CryptoGeadas" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://x.com/Bernardo_Geadas" rel="noopener" target="_blank">X</a>
+      </nav>
+    </div>
+    <div class="site-footer-bottom">
+      <span class="data-line"><span class="dot" data-live-dot>●</span> <span data-live-asof></span>Live numbers come from DefiLlama via my tools · Not financial advice</span>
+      <span class="credit">© 2026 Bernardo Geadas · Built by hand, no frameworks.</span>
     </div>
   </footer>
 
-  <script src="../site.js" type="module"></script>
+  <script src="/site.js" type="module"></script>
 </body>
 </html>

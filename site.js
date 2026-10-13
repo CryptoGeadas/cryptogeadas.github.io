@@ -7,29 +7,9 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
 const LIVE = {
-  scanner: "https://bernardogeadas.com/defi-yield-scanner/data/latest.json",
-  rwa: "https://bernardogeadas.com/tokenized-rwa-tracker/data/latest.json",
+  scanner: "/defi-yield-scanner/data/latest.json",
+  rwa: "/tokenized-rwa-tracker/data/latest.json",
 };
-
-/* ---- theme --------------------------------------------------------------- */
-function initTheme() {
-  const btn = $("#theme");
-  if (!btn) return;
-  btn.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
-  });
-}
-
-/* ---- nav ----------------------------------------------------------------- */
-function initNav() {
-  const nav = $(".nav");
-  if (!nav) return;
-  const on = () => nav.classList.toggle("scrolled", scrollY > 24);
-  on();
-  addEventListener("scroll", on, { passive: true });
-}
 
 /* ---- hero name: split into letters that rise in --------------------------- */
 function splitName() {
@@ -377,8 +357,6 @@ function initTree() {
 
 /* ---- boot ---------------------------------------------------------------- */
 splitName();
-initTheme();
-initNav();
 initReveal();
 initTimeline();
 initSpotlight();
