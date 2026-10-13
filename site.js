@@ -255,13 +255,6 @@ function initField(canvas) {
 
 /* ---- live numbers from the tools' own published snapshots ---------------- */
 const nf = new Intl.NumberFormat("en-US");
-function ago(iso) {
-  const s = (Date.now() - new Date(iso).getTime()) / 1000;
-  if (!isFinite(s)) return "";
-  if (s < 3600) return `${Math.max(1, Math.round(s / 60))}m ago`;
-  if (s < 86400 * 2) return `${Math.round(s / 3600)}h ago`;
-  return `${Math.round(s / 86400)}d ago`;
-}
 async function getJSON(url) {
   const ctl = new AbortController();
   const to = setTimeout(() => ctl.abort(), 8000);
@@ -270,25 +263,54 @@ async function getJSON(url) {
     return r.ok ? await r.json() : null;
   } catch { return null; } finally { clearTimeout(to); }
 }
-async function initLive() {
-  const slots = $$("[data-live]");
-  if (!slots.length) return;
+/* ---- live ticker + footer data line (#8) ---------------------------------
+   Reads each tool's own latest.json (same domain, root-relative). A failed
+   fetch shows "—" for its items only; sample numbers are never shown. */
+const STALE_MS = 36 * 3600 * 1000;
+
+function fmtUTC(d) {
+  const hm = d.toISOString().slice(11, 16);
+  const today = new Date().toISOString().slice(0, 10) === d.toISOString().slice(0, 10);
+  return today ? `${hm} UTC`
+    : `${d.getUTCDate()} ${d.toLocaleString("en-GB", { month: "short", timeZone: "UTC" })} ${hm} UTC`;
+}
+
+// Same pick the scanner shows first by default: Tier 1, no KYC, highest base APY.
+function bestStable(scan) {
+  const rows = (scan?.windows?.["1"] || []).filter((r) => r.access !== "permissioned" && isFinite(r.base));
+  if (!rows.length) return null;
+  return rows.reduce((a, b) => (b.base > a.base ? b : a));
+}
+
+async function initTicker() {
+  const items = $$("[data-tick]");
+  const timeEl = $("[data-live-time]");
+  if (!items.length && !timeEl) return;
   const [scan, rwa] = await Promise.all([getJSON(LIVE.scanner), getJSON(LIVE.rwa)]);
-  const text = {
-    "scanner-kept": scan?.stats && `<b>${nf.format(scan.stats.kept)}</b> pools pass the filter, from <b>${nf.format(scan.stats.totalPools)}</b> screened`,
-    "scanner-age": scan?.generatedAt && `· refreshed ${ago(scan.generatedAt)}`,
-    "rwa-count": rwa?.stats && `<b>${rwa.stats.mainStageCount + rwa.stats.secondaryCount}</b> funds classified · <b>${rwa.stats.unclassifiedCount}</b> flagged as unclassified`,
-    "rwa-age": rwa?.generatedAt && `· refreshed ${ago(rwa.generatedAt)}`,
-    "hero-scanner": scan?.stats && `<b>${nf.format(scan.stats.kept)}</b> stablecoin pools pass the trust filter`,
-    "hero-rwa": rwa?.stats && `<b>${rwa.stats.mainStageCount + rwa.stats.secondaryCount}</b> tokenized funds classified`,
+  const best = bestStable(scan);
+  const vals = {
+    scanner: best && { v: `${best.base.toFixed(2)}%`, n: best.tierDriver || "" },
+    "rwa-count": rwa?.stats && { v: nf.format(rwa.stats.mainStageCount + rwa.stats.secondaryCount) },
+    "rwa-unclassified": rwa?.stats && { v: nf.format(rwa.stats.unclassifiedCount) },
   };
-  let any = false;
-  for (const el of slots) {
-    const v = text[el.dataset.live];
-    if (v) { el.innerHTML = v; any = true; } else el.remove();
+  for (const el of items) {
+    const x = vals[el.dataset.tick];
+    $(".v", el).textContent = x ? x.v : "—";
+    $(".n", el).textContent = x?.n || "";
   }
-  const strip = $(".live-strip");
-  if (strip) any ? strip.classList.add("ready") : strip.remove();
+
+  const times = [scan?.generatedAt, rwa?.generatedAt].map((t) => new Date(t)).filter((d) => isFinite(d));
+  const oldest = times.length ? new Date(Math.min(...times)) : null;
+  const stale = !oldest || times.length < 2 || Date.now() - oldest > STALE_MS;
+  if (timeEl) {
+    timeEl.textContent = `● ${oldest ? fmtUTC(oldest) : "—"}`;
+    timeEl.classList.toggle("stale", stale);
+    if (oldest) timeEl.title = `Oldest tool refresh: ${oldest.toISOString()}`;
+  }
+  const asof = $("[data-live-asof]");
+  if (asof && oldest) asof.textContent = `Data as of ${fmtUTC(oldest)} · `;
+  const dot = $("[data-live-dot]");
+  if (dot && asof) dot.classList.toggle("stale", stale);
 }
 
 /* ---- tools tree: wires drawn from parent to child ------------------------ */
@@ -362,5 +384,5 @@ initTimeline();
 initSpotlight();
 initTree();
 $$("canvas.field").forEach(initField);
-initLive();
+initTicker();
 const yr = $("#yr"); if (yr) yr.textContent = new Date().getFullYear();
