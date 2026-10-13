@@ -272,7 +272,7 @@ function fmtUTC(d) {
   const hm = d.toISOString().slice(11, 16);
   const today = new Date().toISOString().slice(0, 10) === d.toISOString().slice(0, 10);
   return today ? `${hm} UTC`
-    : `${d.getUTCDate()} ${d.toLocaleString("en-GB", { month: "short", timeZone: "UTC" })} ${hm} UTC`;
+    : `${d.getUTCDate()} ${d.toLocaleString("en-US", { month: "short", timeZone: "UTC" })} ${hm} UTC`;
 }
 
 // Same pick the scanner shows first by default: Tier 1, no KYC, highest base APY.

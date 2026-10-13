@@ -477,3 +477,29 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .steps .n { font-family: var(--font-mono); font-size: 28px; color: var(--accent); line-height: 1.2; }
 .steps h3 { font-size: 22px; }
 .steps p { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+
+/* ---- tool page shell (every tool repo links this file) ------------------- */
+.tool-main {
+  display: flex; flex-direction: column; gap: 24px;
+  width: 100%; max-width: var(--max); margin: 0 auto;
+  padding: 0 var(--pad-x-chrome) 48px;
+}
+.tool-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 20px 32px;
+  padding: clamp(28px, 4vw, 40px) 0 24px;
+  border-bottom: 1px solid var(--border);
+}
+.tool-head-copy { display: flex; flex-direction: column; gap: 14px; min-width: 0; max-width: 760px; }
+.tool-title { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.tool-title h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1; }
+.tool-question { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.tool-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.tool-app { min-width: 0; }
+.tool-nav {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px;
+  font-family: var(--font-mono); font-size: 13px;
+}
+.tool-nav a { display: inline-block; padding: 12px 0; color: var(--muted); }
+.tool-nav a:hover { color: var(--accent); }
+.tool-nav span { display: flex; flex-wrap: wrap; gap: 0 20px; }
