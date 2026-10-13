@@ -189,7 +189,7 @@ a.panel:hover { border-color: var(--accent); color: var(--fg); }
   font-size: 12px;
   white-space: nowrap;
 }
-.ticker .ticker-label { flex: none; color: var(--muted); letter-spacing: 0.22em; }
+.ticker .ticker-label { flex: none; color: var(--accent); letter-spacing: 0.22em; }
 .ticker .ticker-items { flex: 1; min-width: 0; overflow: hidden; display: flex; gap: 28px; }
 .ticker .ticker-item { flex: none; display: flex; gap: 10px; color: var(--fg); }
 .ticker .ticker-item:hover { color: var(--accent); }
