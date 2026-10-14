@@ -23,7 +23,7 @@
   --gold: oklch(0.86 0.13 90);        /* crypto */
 
   --font-head: "Chakra Petch", system-ui, sans-serif;
-  --font-body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
   --pad-x: clamp(16px, 5vw, 64px);    /* page side padding */
@@ -55,7 +55,7 @@ body {
   color: var(--fg);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 img, svg { max-width: 100%; }
@@ -372,7 +372,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
   text-transform: uppercase; color: var(--theme, var(--muted)); white-space: nowrap;
 }
 .product-name { font-family: var(--font-head); font-weight: 600; font-size: 17px; letter-spacing: -0.01em; color: var(--fg); }
-.job li { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.job li { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 
 .partners { display: flex; flex-direction: column; gap: 20px; padding-top: 16px; }
 .partner-grid {
@@ -395,7 +395,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .tool-card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .tool-card-num { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .tool-card-name { font-family: var(--font-head); font-weight: 600; font-size: 22px; letter-spacing: -0.02em; }
-.tool-card-desc { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.tool-card-desc { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 .tool-card-foot {
   display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
   gap: 8px; margin-top: auto;
@@ -456,7 +456,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .tool-panel-body { display: flex; flex-direction: column; gap: 16px; flex: 1; padding: 24px 22px; }
 .tool-panel h3 { font-size: 26px; }
 .tool-q { font-family: var(--font-mono); font-size: 14px; line-height: 1.6; color: var(--fg); text-wrap: pretty; }
-.tool-desc { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.tool-desc { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 .tool-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px; }
 
 /* Research panel link */
@@ -468,7 +468,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .research-copy { display: flex; flex-direction: column; gap: 16px; }
 .research-copy .badge { align-self: flex-start; }
 .research-copy h3 { font-size: clamp(30px, 4vw, 44px); line-height: 1.05; }
-.research-copy p { font-size: 16px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.research-copy p { font-size: 16px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 .stat-pair {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   border: 1px solid var(--border); border-radius: var(--r-panel); overflow: hidden;
@@ -490,7 +490,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
   font-size: 24px; color: var(--muted);
   text-decoration: line-through; text-decoration-color: var(--down); text-decoration-thickness: 2px;
 }
-.shelved-card p { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.shelved-card p { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 .verdict-block { display: flex; flex-direction: column; gap: 6px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); }
 .verdict-block .label { font-size: 11px; }
 .verdict-block p { font-family: var(--font-mono); font-size: 14px; line-height: 1.55; color: var(--fg); }
@@ -506,7 +506,7 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 }
 .steps .n { font-family: var(--font-mono); font-size: 28px; color: var(--accent); line-height: 1.2; }
 .steps h3 { font-size: 22px; }
-.steps p { font-size: 15px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.steps p { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
 
 /* ---- tool page shell (every tool repo links this file) ------------------- */
 .tool-main {
