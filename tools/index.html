@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Build Log · Bernardo Geadas</title>
-  <meta name="description" content="The DeFi and RWA tools Bernardo Geadas builds: what's live, what became research, and what was killed on purpose.">
+  <meta name="description" content="The DeFi and RWA tools Bernardo Geadas builds: what's live and what became research.">
   <meta name="theme-color" content="#0c110e">
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,10 +42,10 @@
     <section class="page-intro" aria-labelledby="log-title">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">HOME</a><span aria-hidden="true">/</span><span aria-current="page">BUILD LOG</span></nav>
       <h1 id="log-title">The build <span class="accent">log.</span></h1>
-      <p class="standfirst">Tools for questions I actually have as a DeFi user, including the ones I killed.</p>
+      <p class="standfirst">Tools for questions I actually have as a DeFi user.</p>
       <div class="meta-row">
         <span><span class="accent">crypto-tools</span> <span class="muted">· Personal batch, started Sep 2026</span></span>
-        <span class="muted"><span class="up">3</span> live · <span class="fg">1</span> research · <span class="down">2</span> shelved</span>
+        <span class="muted"><span class="up">3</span> live · <span class="fg">1</span> research</span>
       </div>
     </section>
 
@@ -116,25 +116,6 @@
       </a>
     </section>
 
-    <section class="log-section" aria-labelledby="shelved-title">
-      <div class="log-head">
-        <h2 class="label" id="shelved-title">03 / Shelved on purpose</h2>
-        <p class="note">Prototyped on real data, then stopped</p>
-      </div>
-      <div class="card-grid-wide">
-        <article class="shelved-card">
-          <div class="shelved-top"><h3>Correlation Heatmap</h3><span class="badge badge-down">Shelved</span></div>
-          <p>The idea: find crypto assets that diversify away from BTC. On a year of real data, the only things that did were stablecoins and gold. Every risk asset sat between 0.66 and 0.92 correlation.</p>
-          <div class="verdict-block"><span class="label">Verdict</span><p>The tool's only honest answer was "hold cash", which isn't worth building a tool for.</p></div>
-        </article>
-        <article class="shelved-card">
-          <div class="shelved-top"><h3>Token Unlock vs Price</h3><span class="badge badge-down">Shelved</span></div>
-          <p>The idea: a calendar of upcoming unlocks with the expected price reaction. On 22,168 historical unlock events, the reaction turned out to be the token's normal drift, not the unlock. What was left was about as predictive as a coin flip.</p>
-          <div class="verdict-block"><span class="label">Verdict</span><p>No tool, but the finding became the research piece above.</p></div>
-        </article>
-      </div>
-    </section>
-
     <section class="how" aria-labelledby="how-title">
       <div class="section-head">
         <p class="label">How I build</p>
@@ -142,7 +123,7 @@
       </div>
       <ol class="panel steps">
         <li><span class="n">01</span><h3>Grill the idea</h3><p>Before any code, I question the idea hard: who decides what with it, and what it has to beat to be worth using.</p></li>
-        <li><span class="n">02</span><h3>Prototype on real data</h3><p>A throwaway probe on live data with a go/no-go test. Two of the four ideas so far stopped here.</p></li>
+        <li><span class="n">02</span><h3>Prototype on real data</h3><p>A throwaway probe on live data with a go/no-go test. Ideas that fail the test stop here.</p></li>
         <li><span class="n">03</span><h3>Ship small and automated</h3><p>A scheduled job pulls DefiLlama, a pure pipeline applies the opinion, and a static site publishes it. Everything is open source.</p></li>
       </ol>
     </section>
