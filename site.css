@@ -4,7 +4,7 @@
    Dark only. No shadows, no gradients. */
 
 /* ---- tokens ------------------------------------------------------------- */
-:root, :root[data-theme] {  /* [data-theme] beats legacy brand.css until it is removed */
+:root {
   --bg: oklch(0.145 0.006 160);       /* near-black page */
   --panel: oklch(0.175 0.007 160);    /* cards, panels */
   --border: oklch(0.27 0.01 160);     /* hairlines */
@@ -34,15 +34,6 @@
   --r-ctl: 4px;
 
   color-scheme: dark;
-
-  /* Transitional: map the old BG brand tokens used by legacy.css onto the new
-     palette and fonts. Delete together with legacy.css once #5–#7 ship. */
-  --text: var(--fg);
-  --surface: var(--panel);
-  --elevated: var(--panel);
-  --tertiary: var(--muted);
-  --display: var(--font-head);
-  --body: var(--font-body);
 }
 
 /* ---- base --------------------------------------------------------------- */
@@ -491,6 +482,113 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .steps .n { font-family: var(--font-mono); font-size: 28px; color: var(--accent); line-height: 1.2; }
 .steps h3 { font-size: 22px; }
 .steps p { font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
+
+/* Research article */
+.article-main { width: 100%; padding: 0 var(--pad-x) clamp(56px, 7vw, 72px); }
+.article-head, .article-body { max-width: 760px; margin: 0 auto; }
+.article-head {
+  display: flex; flex-direction: column; gap: 22px;
+  padding: clamp(40px, 7vw, 72px) 0 40px;
+}
+.article-head h1 { font-size: clamp(48px, 9vw, 88px); }
+.article-head .standfirst { font-size: clamp(18px, 2.4vw, 22px); line-height: 1.5; text-wrap: pretty; }
+.byline {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  padding-top: 16px; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--muted);
+}
+.article-body {
+  display: flex; flex-direction: column; gap: 20px;
+  font-size: 17px; line-height: 1.75; color: var(--muted);
+}
+.article-body > p, .article-body li { text-wrap: pretty; }
+.article-body strong { color: var(--fg); font-weight: 600; }
+.article-body h2 { margin-top: 32px; font-size: clamp(26px, 3.4vw, 32px); line-height: 1.15; color: var(--fg); }
+.article-body h2:first-child { margin-top: 0; }
+.article-body h2 .n {
+  display: block; margin-bottom: 10px;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 400; letter-spacing: 0.22em; color: var(--muted);
+}
+.article-body ol, .article-body ul { display: flex; flex-direction: column; gap: 12px; margin: 0; padding-left: 24px; }
+.article-body code { font-family: var(--font-mono); font-size: 0.9em; color: var(--fg); }
+.up { color: var(--up); }
+
+.key-finding {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 20px 32px; align-items: center; padding: clamp(20px, 4vw, 32px);
+}
+.key-finding .big { font-family: var(--font-mono); font-size: clamp(48px, 8vw, 72px); line-height: 1; color: var(--up); }
+.key-finding p { font-size: 17px; line-height: 1.6; color: var(--fg); text-wrap: pretty; }
+
+.article-figure { max-width: 1040px; margin: 20px auto 40px; }
+.chart-bar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px;
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--muted);
+}
+.chart-legend { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.chart-body { padding: clamp(12px, 3vw, 28px); }
+.car-chart { display: block; width: 100%; height: auto; overflow: visible; }
+.car-chart .grid, .car-chart .axis { stroke: var(--border); stroke-width: 1; }
+.car-chart .tick { font-family: var(--font-mono); font-size: 11px; fill: var(--muted); }
+.car-chart .day0 { stroke: var(--fg); stroke-opacity: 0.4; stroke-width: 1; }
+.car-chart .trend { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 5 4; }
+.car-chart .actual { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.car-narrow { display: none; }
+@media (max-width: 640px) { .car-wide { display: none; } .car-narrow { display: block; } }
+.chart-stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  border-top: 1px solid var(--border); font-family: var(--font-mono);
+}
+.chart-stats > div {
+  display: flex; flex-direction: column; gap: 6px; padding: 16px 20px;
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 0 -1px -1px 0;
+}
+.chart-stats .k { font-size: 11px; letter-spacing: 0.22em; color: var(--muted); }
+.chart-stats .v { font-size: 20px; }
+.chart-stats .u { font-size: 13px; color: var(--muted); }
+.article-figure figcaption {
+  max-width: 712px; margin: 14px auto 0;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--muted);
+}
+
+/* Bull / bear tables: a panel with a mono header row and a mono data row */
+.data-table {
+  display: table; width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0;
+  font-family: var(--font-mono); font-size: 14px; line-height: 1.5;
+}
+.data-table th, .data-table td { padding: 16px 18px; text-align: right; font-weight: 400; vertical-align: baseline; }
+.data-table th:first-child { width: 50%; text-align: left; }
+.data-table thead th {
+  padding-block: 12px; border-bottom: 1px solid var(--border);
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+}
+.data-table tbody th { color: var(--fg); }
+.data-table td strong { color: inherit; font-weight: 500; }
+
+/* "Method, limits and honesty" appendix */
+.method { margin-top: 40px; }
+.method-head {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: clamp(20px, 4vw, 32px) clamp(18px, 4vw, 32px) 20px; border-bottom: 1px solid var(--border);
+}
+.method-head h2 { margin: 0; }
+.method-head p { font-size: 14px; }
+.method dl { margin: 0; }
+.method dl > div {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 8px 24px;
+  padding: 20px clamp(18px, 4vw, 32px);
+}
+@media (max-width: 560px) { .method dl > div { grid-template-columns: minmax(0, 1fr); } }
+.method dl > div + div { border-top: 1px solid var(--border); }
+.method dt {
+  padding-top: 5px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--fg);
+}
+.method dd { display: flex; flex-direction: column; gap: 10px; min-width: 0; margin: 0; }
+.method dd p { font-size: 15px; line-height: 1.7; text-wrap: pretty; }
+.closing { margin-top: 12px; font-size: 18px; line-height: 1.65; color: var(--fg); text-wrap: pretty; }
+.article-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; padding-top: 24px; border-top: 1px solid var(--border); }
 
 /* ---- tool page shell (every tool repo links this file) ------------------- */
 .tool-main {
