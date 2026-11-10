@@ -13,7 +13,8 @@
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/assets/hero-lisbon-poster.jpg">
   <link rel="stylesheet" href="/site.css">
 </head>
 <body>
@@ -37,293 +38,351 @@
         <a href="/tools/">Tools</a>
         <a href="/#contact">Contact</a>
       </nav>
-      <span class="site-tagline">PRODUCT × PARTNERSHIPS × COMPLIANCE</span>
+      <a class="btn btn-sm site-cta" href="mailto:bernardofgeadasj@gmail.com">Email me</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="intro" aria-labelledby="name">
-      <div class="intro-copy">
-        <p class="label">Lead Product Manager · Web3 &amp; Fintech · Lisbon</p>
-        <h1 id="name">Bernardo<br><span class="accent">Geadas.</span></h1>
-        <p class="intro-line">I build crypto products where on&#8209;chain yield meets regulation.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/tools/">Explore my tools →</a>
-          <a class="btn" href="#experience">Experience</a>
-        </div>
+    <!-- Hero: background video, text on top -->
+    <section class="intro hero" aria-labelledby="name">
+      <div class="hero-media grade" aria-hidden="true">
+        <video data-hero-video src="/assets/hero-lisbon.mp4" poster="/assets/hero-lisbon-poster.jpg" muted loop playsinline preload="metadata"></video>
+        <span class="tint"></span>
+        <span class="scrim"></span>
       </div>
-      <div class="stat-panel">
-        <div class="stat-cell th-product">
-          <p class="stat-tag">Product · Earn API</p>
-          <div class="stat-num">70K+</div>
-          <p class="stat-text">monthly end users through the exchanges and fintechs on Earn API</p>
-        </div>
-        <div class="stat-cell th-product">
-          <p class="stat-tag">Product · Vaults</p>
-          <div class="stat-num">&lt; 4 <span class="stat-unit">months</span></div>
-          <p class="stat-text">to take our client vaults from idea to launch, across eight teams</p>
-        </div>
-        <div class="stat-cell th-product">
-          <p class="stat-tag">Product · Earn Direct</p>
-          <div class="stat-num">25%+</div>
-          <p class="stat-text">more clients within six months of my onboarding redesign</p>
-        </div>
-        <div class="stat-cell th-partner">
-          <p class="stat-tag">Partnerships · Bitstamp</p>
-          <div class="stat-num">~35%</div>
-          <p class="stat-text">growth in partner revenue from rev-share deals</p>
-        </div>
-        <div class="stat-cell th-compliance">
-          <p class="stat-tag">Compliance · Travel Rule</p>
-          <div class="stat-num">~80%</div>
-          <p class="stat-text">of users kept on the simplest wallet check, with risk-based verification</p>
-        </div>
-        <div class="stat-cell th-crypto">
-          <p class="stat-tag">Crypto</p>
-          <div class="stat-num">9 <span class="stat-unit">years</span></div>
-          <p class="stat-text">using crypto, the last 5 working in it</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section" id="about" aria-labelledby="about-title">
-      <div class="wrap about-layout">
-        <div class="about-copy">
-          <p class="label">01 / About</p>
-          <h2 id="about-title">Product, partnerships and the compliance work in between.</h2>
-          <p class="body-text">I'm a Lead Product Manager based in Lisbon. I've used crypto since 2017 and worked in it since 2021, first in partnerships at Bitstamp, now leading product at Tesseract, a MiCA-licensed crypto yield provider.</p>
-          <p class="body-text">I like building what other companies run on. At Tesseract I own the roadmaps for our institutional vaults and for Earn API, the B2B yield API that exchanges and fintechs build into their own products. Together with compliance, I set up the KYC, AML and Travel Rule flows behind them.</p>
-          <p class="body-text">At Bitstamp I took partnerships from the first call to go-to-market, including the one behind Stripe's fiat-to-crypto onramp in the EU, and Mastercard as a deposit method.</p>
-          <p class="body-text">Before crypto, I spent four years at Sofico turning client needs into software specs. That's where I found I like product work. Outside work, I build small data tools for questions I have as a DeFi user.</p>
-          <div class="chips">
-            <span class="chip">Roadmap ownership</span>
-            <span class="chip">People leadership</span>
-            <span class="chip">Exec &amp; board presentations</span>
-            <span class="chip">Vendor selection</span>
-            <span class="chip">Product ownership</span>
-            <span class="chip">DeFi vaults (ERC-4626)</span>
-            <span class="chip">MiCA &amp; Travel Rule</span>
-            <span class="chip">KYC / KYB flows</span>
-            <span class="chip">Partnerships &amp; GTM</span>
-            <span class="chip">Custody integration</span>
-            <span class="chip">On-chain data</span>
-            <span class="chip">AI agents &amp; automation</span>
+      <div class="wrap hero-inner">
+        <div class="intro-copy">
+          <p class="eyebrow">PRODUCT × PARTNERSHIPS × COMPLIANCE</p>
+          <p class="label">Lead Product Manager · Web3 &amp; Fintech · Lisbon</p>
+          <h1 id="name">Bernardo Geadas.</h1>
+          <p class="intro-line">I build crypto products where on&#8209;chain yield meets regulation.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/tools/">Explore my tools →</a>
+            <a class="btn" href="#experience">Experience</a>
           </div>
         </div>
-        <div class="panel rows facts-panel">
-          <div class="fact"><p class="label">Based in</p><p>Lisbon, Portugal · remote across Europe</p></div>
-          <div class="fact"><p class="label">Languages</p><p>Portuguese native · English advanced · Spanish B2 · French A2</p></div>
-          <div class="fact"><p class="label">Education</p><p>MSc Information Systems Management · NOVA IMS, Lisbon &amp; University of Ljubljana</p><p>BSc Business Administration · ISEG, Lisbon</p></div>
-          <div class="fact"><p class="label">Certification</p><p>TRM Certified Investigator · TRM Labs</p></div>
+        <div class="hero-side">
+          <button class="btn btn-sm hero-pause" type="button" data-hero-toggle aria-pressed="false" hidden>❚❚ Pause background</button>
+          <p class="avail"><span class="dot-live" aria-hidden="true"></span><span>Open to product roles · remote across Europe or from Lisbon</span></p>
+          <span class="hero-loc">LISBON · WEB3 &amp; FINTECH</span>
         </div>
       </div>
     </section>
 
+    <!-- Proof strip -->
+    <section aria-label="Selected results">
+      <div class="wrap">
+        <div class="stat-panel">
+          <div class="stat-cell th-product">
+            <p class="stat-tag">Product · Earn API</p>
+            <div class="stat-num">70K+</div>
+            <p class="stat-text">monthly end users through the exchanges and fintechs on Earn API</p>
+          </div>
+          <div class="stat-cell th-product">
+            <p class="stat-tag">Product · Vaults</p>
+            <div class="stat-num">4<span class="stat-unit">months</span></div>
+            <p class="stat-text">to take our client vaults from idea to launch, across five teams</p>
+          </div>
+          <div class="stat-cell th-product">
+            <p class="stat-tag">Product · Earn Direct</p>
+            <div class="stat-num">25%+</div>
+            <p class="stat-text">more clients within six months of my onboarding redesign</p>
+          </div>
+          <div class="stat-cell th-partner">
+            <p class="stat-tag">Partnerships · Bitstamp</p>
+            <div class="stat-num">35%</div>
+            <p class="stat-text">growth in partner revenue from rev-share deals</p>
+          </div>
+          <div class="stat-cell th-compliance">
+            <p class="stat-tag">Compliance · Travel Rule</p>
+            <div class="stat-num">80%</div>
+            <p class="stat-text">of users kept on the simplest wallet check, with risk-based verification</p>
+          </div>
+          <div class="stat-cell th-crypto">
+            <p class="stat-tag">Crypto</p>
+            <div class="stat-num">9<span class="stat-unit">years</span></div>
+            <p class="stat-text">using crypto, the last 5 working in it</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 About -->
+    <section class="home-section" id="about" aria-labelledby="about-title" style="border-top: 0">
+      <div class="wrap sec-grid">
+        <p class="label"><b>01</b> / About</p>
+        <div class="about-layout">
+          <div class="about-copy">
+            <h2 id="about-title">Product, partnerships and the compliance work in between.</h2>
+            <p class="body-text">I've used crypto since 2017 and worked in it since 2021. Today I lead product at Tesseract, a MiCA-licensed crypto yield provider.</p>
+            <p class="body-text">I like building what other companies run on. At a licensed provider the licence shapes what you can build, so I work as closely with compliance and legal as with engineering.</p>
+            <p class="body-text">Before that I spent three years in partnerships at Bitstamp. The partnerships kept pulling me into product decisions, and I wanted to own them.</p>
+            <p class="body-text">Before crypto, I spent four years at Sofico turning client needs into software specs. That's where I found I like product work. Outside work, I build small data tools for questions I have as a DeFi user.</p>
+            <div class="chips">
+              <span class="chip">Product &amp; roadmap ownership</span>
+              <span class="chip">People leadership</span>
+              <span class="chip">Exec &amp; board presentations</span>
+              <span class="chip">DeFi vaults (ERC-4626)</span>
+              <span class="chip">MiCA, KYC &amp; Travel Rule</span>
+              <span class="chip">Partnerships &amp; GTM</span>
+              <span class="chip">Custody integration</span>
+              <span class="chip">AI agents &amp; automation</span>
+            </div>
+          </div>
+          <div class="panel rows facts-panel">
+            <div class="fact"><p class="label">Based in</p><p>Lisbon, Portugal · remote across Europe</p></div>
+            <div class="fact"><p class="label">Languages</p><p>Portuguese native · English advanced · Spanish B2 · French A2</p></div>
+            <div class="fact"><p class="label">Education</p><p>MSc Information Systems Management · NOVA IMS, Lisbon &amp; University of Ljubljana</p><p>BSc Business Administration · ISEG, Lisbon</p></div>
+            <div class="fact"><p class="label">Certification</p><p>TRM Certified Investigator · TRM Labs</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Experience -->
     <section class="home-section" id="experience" aria-labelledby="experience-title">
-      <div class="wrap experience">
-        <div class="section-head">
-          <p class="label">02 / Experience</p>
-          <h2 id="experience-title">Where I've worked.</h2>
-        </div>
-        <ol class="jobs">
-          <li class="job">
-            <p class="job-dates">OCT 2024 — PRESENT</p>
-            <h3>Tesseract <span>· Lead Product Manager</span></h3>
-            <p class="job-meta">Crypto yield, MiCA-licensed CASP · Remote</p>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Dedicated Client Vaults (DCV)</span></div>
-              <ul>
-                <li>Co-designed the Dedicated Client Vault: per-client ERC-4626 smart-contract vaults, built on IPOR Fusion, giving institutional clients segregated, compliant on-chain yield across lending protocols through one vault interface.</li>
-                <li>Took the vaults from idea to launch in under four months. Coordinated engineering, asset management, compliance, legal and commercial, and set up risk controls such as circuit breakers and position monitoring. Live with a range of clients, including 21Shares.</li>
-                <li>Work with asset management on the vaults' yield strategies, and with engineering on their accounting: oracle and price-feed choices, and share-price / NAV integrity across nested vaults.</li>
-                <li>Own the vault roadmap and presented it to the exec team and board members. Own the vault docs (integration guide and API reference), and I'm scoping the next API version, which lets clients manage their vaults from their own systems.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Earn API</span></div>
-              <ul>
-                <li>Own Earn API, the B2B yield API that exchanges and fintechs build into their own products. Their end users on it reach 70K+ a month.</li>
-                <li>Took it over live and led the move from a manual daily settlement task to netted daily settlement. Daily reconciliation reports now feed our finance team's month-end close.</li>
-                <li>Defined the flow for when our ledger and a partner's don't match.</li>
-                <li>Took partners live, including Iconomi.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Earn Direct</span></div>
-              <ul>
-                <li>Owned Earn Direct, Tesseract's lending product. Redesigned onboarding so clients knew up front what was coming (documents, liveness check, source of funds), and wrote its copy.</li>
-                <li>KYC completion rose about 20%, onboarding time for retail clients improved almost 30%, and relevant clientele grew 25%+ in the first six months.</li>
-                <li>Integrated third-party custody with BitGo and Fireblocks, and managed Eigen Labs, the outside dev firm that helped with the Fireblocks integration.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-compliance">Compliance</span><span class="product-name">KYC, AML &amp; Travel Rule</span></div>
-              <ul>
-                <li>Set up the KYC, AML and Travel Rule flows for MiCA with Sumsub, TRM Labs and Notabene, chosen together with compliance during the licence work. They include sanctions and PEP screening, and enhanced due diligence for higher-risk clients.</li>
-                <li>Compliance asked for a micro-transaction check on every client wallet. I proposed using the KYC risk rating each client already had to pick the check instead. About 80% of users now stay on the simplest one.</li>
-                <li>Set up DAC8-compliant tax reporting for both the vaults and Earn.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-neutral">Team &amp; AI</span></div>
-              <ul>
-                <li>Manage a junior Product Manager: I review their specs and PRDs and coach them on discovery and prioritisation.</li>
-                <li>Set up Tesseract's company Claude account, connected it to internal tools, and trained about 15 people across seven departments. Some tasks went from a full day to under an hour.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="job">
-            <p class="job-dates">JUL — SEP 2024</p>
-            <h3>Bitpanda <span>· Senior Sales Manager, South Europe, France and Benelux</span></h3>
-            <p class="job-meta">Crypto broker · Remote</p>
-            <ul>
-              <li>Sales strategy, client acquisition and RFI/RFP delivery at the Vienna-based crypto broker.</li>
-            </ul>
-          </li>
-          <li class="job">
-            <p class="job-dates">JUN 2021 — JUN 2024</p>
-            <h3>Bitstamp <span>· Strategic Partnerships Lead</span></h3>
-            <p class="job-meta">Crypto exchange · Remote</p>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Bitstamp-as-a-Service</span></div>
-              <ul>
-                <li>Took partnerships from first conversation to go-to-market, including the one powering Stripe's fiat-to-crypto onramp in the EU (announced August 2024), with Bitstamp handling the conversion under Bitstamp-as-a-Service.</li>
-                <li>Brought neobanks and wallet providers such as N26, Trust Wallet and MetaMask Institutional onto Bitstamp-as-a-Service. Rev-share partnerships lifted partner revenue by about 35%.</li>
-                <li>Turned compliance's rules on KYC reliance into partner requirements: Bitstamp relied on licensed partners' KYC, and ran its own KYC inside the journey of unlicensed ones.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Mastercard deposits</span></div>
-              <ul>
-                <li>Ran the Mastercard partnership from inception to launch as a deposit method, so users could fund accounts without paying third-party onramp fees.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-crypto">Crypto</span><span class="product-name">Listings &amp; liquidity</span></div>
-              <ul>
-                <li>Sat on the Coin Listings Team, weighing client demand for new assets against EU rules on what counts as a security under MiFID.</li>
-                <li>Managed liquidity relationships with market makers Wintermute, GSR and Keyrock for new trading pairs, and worked with market-data providers Kaiko and CCData. Revolut sourced crypto liquidity from Bitstamp during this time.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Institutional &amp; OTC</span></div>
-              <ul>
-                <li>Built the OTC and Institutional VIP partnerships, and signed 18 new trading partners at industry conferences.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-neutral">Team</span></div>
-              <ul>
-                <li>Line-managed two partnership associates.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="job">
-            <p class="job-dates">JAN 2017 — DEC 2020</p>
-            <h3>Sofico <span>· Product Manager</span></h3>
-            <p class="job-meta">Leasing and automotive-finance software · Gent, Belgium</p>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Miles ERP implementations</span></div>
-              <ul>
-                <li>Led enterprise implementations end to end: requirements, functional specs, go-lives and upgrades.</li>
-                <li>Built API integrations with Salesforce, NetSuite and clients' accounting software.</li>
-                <li>Worked on recurring billing for lease contracts in the ERP.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">White-label mobile app</span></div>
-              <ul>
-                <li>Worked on the B2B2C app that clients offered to their own customers, including its KYC features.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-neutral">Accounts</span></div>
-              <ul>
-                <li>Managed the company's largest customer, ALD Automotive, for two years.</li>
-                <li>Grew a five-account portfolio organically from just over €1M to about €3M in revenue.</li>
-              </ul>
-            </div>
-            <div class="product">
-              <div class="product-head"><span class="product-tag th-neutral">Team</span></div>
-              <ul>
-                <li>Led a junior developer and a junior product manager day to day.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="job">
-            <p class="job-dates">2014</p>
-            <h3>Banco BPI <span>· Sales Development Representative</span></h3>
-            <ul>
-              <li>Lead generation and outbound prospecting for retail banking.</li>
-            </ul>
-          </li>
-        </ol>
+      <div class="wrap sec-grid">
+        <p class="label"><b>02</b> / Experience</p>
+        <div class="experience">
+          <h2 id="experience-title">From exchange partnerships to institutional on-chain yield.</h2>
+          <ol class="jobs">
+            <li class="job is-current">
+              <details open>
+                <summary>
+                  <span class="job-dates">Oct 2024 — Present</span>
+                  <h3>Tesseract <span>Lead Product Manager</span></h3>
+                  <span class="job-meta">Crypto yield · MiCA-licensed CASP<br>Remote</span>
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Dedicated Client Vaults (DCV)</span></div>
+                    <ul>
+                      <li>Co-designed per-client ERC-4626 vaults on IPOR Fusion: segregated, compliant on-chain yield for institutions, across lending protocols, through one interface.</li>
+                      <li>Idea to launch in under four months across five teams, with circuit breakers and position monitoring. Live with clients including 21Shares.</li>
+                      <li>Work with asset management on yield strategies, and with engineering on oracles and share-price / NAV integrity across nested vaults.</li>
+                      <li>Own the roadmap (presented to exec and board), the integration guide and API reference, and the next API version.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Earn API</span></div>
+                    <ul>
+                      <li>Own the B2B yield API that exchanges and fintechs embed. 70K+ monthly end users; took partners live, including Iconomi.</li>
+                      <li>Took it over live and moved settlement from a manual daily task to netted daily settlement, including the flow for ledger mismatches with partners. Reconciliation now feeds month-end close.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Earn Direct</span></div>
+                    <ul>
+                      <li>Owned Tesseract's lending product. My onboarding redesign lifted KYC completion ~20%, cut retail onboarding time ~30%, and grew clientele 25%+ in six months.</li>
+                      <li>The redesign told clients up front what was coming (documents, liveness check, source of funds), and I wrote its copy.</li>
+                      <li>Integrated custody with BitGo and Fireblocks; managed Eigen Labs, the outside dev firm.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-compliance">Compliance</span><span class="product-name">KYC, AML &amp; Travel Rule</span></div>
+                    <ul>
+                      <li>Set up MiCA KYC, AML and Travel Rule flows with Sumsub, TRM Labs and Notabene, including sanctions/PEP screening and EDD.</li>
+                      <li>Replaced a micro-transaction check on every wallet with a check picked by each client's KYC risk rating. ~80% of users stay on the simplest one.</li>
+                      <li>Set up DAC8 tax reporting for the vaults and Earn.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Team &amp; AI</span></div>
+                    <ul>
+                      <li>Manage a junior PM: spec and PRD reviews, discovery and prioritisation coaching.</li>
+                      <li>Rolled out Claude company-wide and trained ~15 people across seven departments. Some day-long tasks now take under an hour.</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </li>
 
-        <div class="partners">
-          <p class="label">Partners, clients and platforms I've worked with</p>
-          <ul class="partner-grid">
-            <li>Stripe</li>
-            <li>Mastercard</li>
-            <li>Revolut</li>
-            <li>21Shares</li>
-            <li>IPOR Fusion</li>
-            <li>Fireblocks</li>
-            <li>BitGo</li>
-            <li>Copper</li>
-            <li>Sumsub</li>
-            <li>TRM Labs</li>
-            <li>Notabene</li>
-            <li>Kaiko</li>
-            <li>Wintermute</li>
-            <li>GSR</li>
-            <li>Keyrock</li>
-            <li>Iconomi</li>
-          </ul>
+            <li class="job">
+              <details>
+                <summary>
+                  <span class="job-dates">Jul — Sep 2024</span>
+                  <h3>Bitpanda <span>Senior Sales Manager, South Europe, France and Benelux</span></h3>
+                  <span class="job-meta">Crypto broker<br>Remote</span>
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <ul>
+                    <li>Sales strategy, client acquisition and RFI/RFP delivery at the Vienna-based crypto broker.</li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+
+            <li class="job">
+              <details>
+                <summary>
+                  <span class="job-dates">Jun 2021 — Jun 2024</span>
+                  <h3>Bitstamp <span>Strategic Partnerships Lead</span></h3>
+                  <span class="job-meta">Crypto exchange<br>Remote</span>
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Bitstamp-as-a-Service</span></div>
+                    <ul>
+                      <li>First call to go-to-market, including the partnership powering Stripe's EU fiat-to-crypto onramp (announced Aug 2024).</li>
+                      <li>Onboarded N26, Trust Wallet and MetaMask Institutional. Rev-share deals lifted partner revenue ~35%.</li>
+                      <li>Turned KYC-reliance rules into partner requirements: rely on licensed partners' KYC, run our own for unlicensed ones.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Mastercard deposits</span></div>
+                    <ul>
+                      <li>Launched Mastercard as a deposit method, so users could fund accounts without third-party onramp fees.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-crypto">Crypto</span><span class="product-name">Listings &amp; liquidity</span></div>
+                    <ul>
+                      <li>Coin Listings Team: weighed client demand against MiFID rules on what counts as a security.</li>
+                      <li>Managed market makers Wintermute, GSR and Keyrock, and data providers Kaiko and CCData.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-partner">Partnerships</span><span class="product-name">Institutional &amp; OTC</span></div>
+                    <ul>
+                      <li>Built OTC and Institutional VIP partnerships; signed 18 trading partners at conferences.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Team</span></div>
+                    <ul>
+                      <li>Line-managed two partnership associates.</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </li>
+
+            <li class="job">
+              <details>
+                <summary>
+                  <span class="job-dates">Jan 2017 — Dec 2020</span>
+                  <h3>Sofico <span>Product Manager</span></h3>
+                  <span class="job-meta">Leasing and automotive-finance software<br>Ghent, Belgium</span>
+                  <span class="job-toggle" aria-hidden="true"></span>
+                </summary>
+                <div class="job-body">
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">Miles ERP implementations</span></div>
+                    <ul>
+                      <li>Led enterprise implementations end to end, from specs to go-live.</li>
+                      <li>API integrations with Salesforce, NetSuite and clients' accounting.</li>
+                      <li>Recurring billing for lease contracts.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Product</span><span class="product-name">White-label mobile app</span></div>
+                    <ul>
+                      <li>B2B2C app for clients' own customers, including KYC.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Accounts</span></div>
+                    <ul>
+                      <li>Managed the largest customer, ALD Automotive, for two years.</li>
+                      <li>Grew a five-account portfolio from ~€1M to ~€3M revenue.</li>
+                    </ul>
+                  </div>
+                  <div class="product">
+                    <div class="product-head"><span class="product-tag th-product">Team</span></div>
+                    <ul>
+                      <li>Led a junior developer and a junior PM.</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+            </li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ol>
+
+          <div class="partners">
+            <p class="label">Partners, clients and platforms I've worked with</p>
+            <ul class="partner-grid">
+              <li>Stripe</li><li>Mastercard</li><li>Revolut</li><li>21Shares</li><li>IPOR Fusion</li><li>Fireblocks</li><li>BitGo</li><li>Copper</li><li>Sumsub</li><li>TRM Labs</li><li>Notabene</li><li>Kaiko</li><li>Wintermute</li><li>GSR</li><li>Keyrock</li><li>Iconomi</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="home-section" id="tools" aria-labelledby="tools-title">
+    <!-- 03 Tools -->
+    <section class="home-section tools-band" id="tools" aria-labelledby="tools-title">
       <div class="wrap tools-block">
-        <div class="section-head-row">
+        <div class="sec-grid">
+          <p class="label"><b>03</b> / Tools</p>
           <div class="section-head">
-            <p class="label">03 / Tools</p>
-            <h2 id="tools-title">Things I build.</h2>
+            <h2 id="tools-title">DeFi tools I build in my own time.</h2>
+            <p class="body-text">I build these in my own time. Every idea has to pass two tests first: a hard interview of the idea, then a prototype on real data.</p>
+            <p><a class="link-action" href="/tools/">See the full build log →</a></p>
           </div>
-          <a class="link-action" href="/tools/">See the full build log →</a>
         </div>
-        <p class="body-text">I build these in my own time. Every idea has to pass two tests first: a hard interview of the idea, then a prototype on real data. Some don't survive, and the build log shows those too.</p>
         <div class="card-grid">
           <a class="card" href="/defi-yield-scanner/">
-            <div class="tool-card-top"><span class="tool-card-num">01</span><span class="tool-card-name">DeFi Yield Scanner</span><span class="badge badge-live">Live</span></div>
-            <p class="tool-card-desc">Where can I park stablecoins, and is the yield real? A trust filter that treats a high APY as a red flag as often as an opportunity.</p>
+            <div class="tool-card-top"><span class="tool-card-num">T / 01</span><span class="badge badge-live">Live</span></div>
+            <span class="tool-card-name">DeFi Yield Scanner</span>
+            <p class="tool-card-q">“Where can I park stablecoins, and is the yield real?”</p>
+            <p class="tool-card-desc">A trust filter that treats a high APY as a red flag as often as an opportunity.</p>
+            <div class="tool-preview" data-preview="scanner" aria-hidden="true">
+              <div class="pv-h"><span>Lower-risk pools</span><span>Base APY</span></div>
+              <div class="pv-r"><span class="sk" style="width:70%"></span><span class="v">—</span><span class="dot-live"></span></div>
+              <div class="pv-r"><span class="sk" style="width:55%"></span><span class="v">—</span><span class="dot-live"></span></div>
+              <div class="pv-r"><span class="sk" style="width:62%"></span><span class="v">—</span><span class="dot-live"></span></div>
+            </div>
             <div class="tool-card-foot"><span class="muted">Data: DefiLlama</span><span class="cta">Open tool →</span></div>
           </a>
           <a class="card" href="/tokenized-rwa-tracker/">
-            <div class="tool-card-top"><span class="tool-card-num">02</span><span class="tool-card-name">Tokenized RWA Tracker</span><span class="badge badge-live">Live</span></div>
-            <p class="tool-card-desc">A trust filter for tokenized real-world assets, classified by what actually backs each fund rather than by its marketing label.</p>
+            <div class="tool-card-top"><span class="tool-card-num">T / 02</span><span class="badge badge-live">Live</span></div>
+            <span class="tool-card-name">Tokenized RWA Tracker</span>
+            <p class="tool-card-q">A trust filter for tokenized real-world assets.</p>
+            <p class="tool-card-desc">Classified by what actually backs each fund rather than by its marketing label.</p>
+            <div class="tool-preview" data-preview="rwa" aria-hidden="true">
+              <div class="pv-h"><span>Main-stage funds by trust tier</span><span data-pv-total>—</span></div>
+              <div class="pv-bar"><i style="width:100%;background:var(--border-strong)"></i></div>
+              <div class="pv-lg"><span>Tier 1–4</span></div>
+            </div>
             <div class="tool-card-foot"><span class="muted">Data: DefiLlama</span><span class="cta">Open tool →</span></div>
           </a>
           <a class="card" href="/crypto-fundamentals/">
-            <div class="tool-card-top"><span class="tool-card-num">03</span><span class="tool-card-name">Crypto Fundamentals</span><span class="badge badge-live">Live</span></div>
-            <p class="tool-card-desc">What am I actually buying? A token's fundamentals on one page, each number rated by fixed, visible rules.</p>
+            <div class="tool-card-top"><span class="tool-card-num">T / 03</span><span class="badge badge-live">Live</span></div>
+            <span class="tool-card-name">Crypto Fundamentals</span>
+            <p class="tool-card-q">“What am I actually buying?”</p>
+            <p class="tool-card-desc">A token's fundamentals on one page, each number rated by fixed, visible rules.</p>
+            <div class="tool-preview" aria-hidden="true">
+              <div class="pv-h"><span>Every number, one rule</span><span>Rating</span></div>
+              <div class="pv-r"><span class="nm">Very low</span><span class="meter"><i class="on"></i><i></i><i></i><i></i><i></i></span><span></span></div>
+              <div class="pv-r"><span class="nm">Neutral</span><span class="meter"><i></i><i></i><i class="on"></i><i></i><i></i></span><span></span></div>
+              <div class="pv-r"><span class="nm">Very high</span><span class="meter"><i></i><i></i><i></i><i></i><i class="on"></i></span><span></span></div>
+            </div>
             <div class="tool-card-foot"><span class="muted">Data: DefiLlama, CoinGecko, GitHub</span><span class="cta">Open tool →</span></div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="home-section" id="contact" aria-labelledby="contact-title">
-      <div class="wrap contact-layout">
-        <div class="contact-copy">
-          <p class="label">04 / Contact</p>
-          <h2 id="contact-title">Let's <span class="accent">talk.</span></h2>
-          <p class="body-text">Open to product roles in web3 and fintech, remote across Europe or from Lisbon.</p>
-        </div>
-        <div class="contact-list">
-          <a href="mailto:bernardofgeadasj@gmail.com"><span class="k">Email</span><span class="v"><span>bernardofgeadasj@gmail.com</span><span aria-hidden="true">↗</span></span></a>
-          <a href="https://www.linkedin.com/in/bernardo-geadas" rel="noopener" target="_blank"><span class="k">LinkedIn</span><span class="v"><span>in/bernardo-geadas</span><span aria-hidden="true">↗</span></span></a>
-          <a href="https://github.com/CryptoGeadas" rel="noopener" target="_blank"><span class="k">GitHub</span><span class="v"><span>CryptoGeadas</span><span aria-hidden="true">↗</span></span></a>
+    <!-- 04 Contact -->
+    <section class="home-section" id="contact" aria-labelledby="contact-title" style="border-top: 0">
+      <div class="wrap sec-grid">
+        <p class="label"><b>04</b> / Contact</p>
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <h2 id="contact-title">Let's talk.</h2>
+            <p class="body-text"><span class="dot-live" aria-hidden="true"></span><span>Open to product roles in web3 and fintech, remote across Europe or from Lisbon.</span></p>
+          </div>
+          <div class="contact-list">
+            <a href="mailto:bernardofgeadasj@gmail.com"><span class="k">Email</span><span class="v"><span>bernardofgeadasj@gmail.com</span><span aria-hidden="true">→</span></span></a>
+            <a href="https://www.linkedin.com/in/bernardo-geadas" rel="noopener" target="_blank"><span class="k">LinkedIn</span><span class="v"><span>in/bernardo-geadas</span><span aria-hidden="true">↗</span></span></a>
+            <a href="https://github.com/CryptoGeadas" rel="noopener" target="_blank"><span class="k">GitHub</span><span class="v"><span>CryptoGeadas</span><span aria-hidden="true">↗</span></span></a>
+          </div>
         </div>
       </div>
     </section>
@@ -347,5 +406,6 @@
   </footer>
 
   <script src="/site.js" type="module"></script>
+  <script src="/home.js" type="module"></script>
 </body>
 </html>
