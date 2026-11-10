@@ -378,6 +378,69 @@ function initTree() {
   new ResizeObserver(() => { if (!drawn) return; clearTimeout(t); t = setTimeout(() => build(false), 80); }).observe(tree);
 }
 
+/* ---- build log: one live line under each tool (v2.1) ---------------------
+   <p class="tool-readout" data-readout="scanner|rwa|fundamentals" hidden></p>
+   Stays hidden when its data does not load: no sample numbers, ever. */
+async function initReadouts() {
+  const els = $$("[data-readout]");
+  if (!els.length) return;
+  const want = new Set(els.map((el) => el.dataset.readout));
+  const [scan, rwa, uni] = await Promise.all([
+    want.has("scanner") ? getJSON(LIVE.scanner) : null,
+    want.has("rwa") ? getJSON(LIVE.rwa) : null,
+    want.has("fundamentals") ? getJSON("/crypto-fundamentals/data/universe.json") : null,
+  ]);
+  const b = (k, v) => `<span>${k} <b>${v}</b></span>`;
+  const lines = {
+    scanner: scan?.stats && Number.isFinite(scan.baseRate)
+      ? b("Base rate", `${scan.baseRate.toFixed(2)}%`) + b("Pools kept", `${nf.format(scan.stats.kept)} of ${nf.format(scan.stats.totalPools)}`) : null,
+    rwa: rwa?.stats
+      ? b("Main-stage funds", nf.format(rwa.stats.mainStageCount)) + b("In review", nf.format(rwa.stats.unclassifiedCount)) : null,
+    fundamentals: Number.isFinite(uni?.count ?? uni?.tokens?.length)
+      ? b("Verified tokens", nf.format(uni.count ?? uni.tokens.length)) : null,
+  };
+  for (const el of els) {
+    const html = lines[el.dataset.readout];
+    if (html) { el.innerHTML = html; el.hidden = false; }
+  }
+}
+
+/* ---- methodology pages: "On this page" list built from the h2s (v2.1) ------
+   <nav class="doc-toc" data-doc-toc hidden></nav> next to <main class="doc">.
+   Uses an h2's id, else its section's id, else a slug of its text. */
+function initDocToc() {
+  const nav = $("[data-doc-toc]");
+  const doc = $(".doc");
+  if (!nav || !doc) return;
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48);
+  const used = new Set($$("[id]").map((e) => e.id));
+  const items = $$("h2", doc).map((h) => {
+    let id = h.id || h.closest("section[id]")?.id;
+    if (!id) {
+      id = slug(h.textContent) || "section";
+      let n = 2; const base = id;
+      while (used.has(id)) id = `${base}-${n++}`;
+      used.add(id);
+      h.id = id;
+    }
+    return { id, text: h.textContent.replace(/\s+/g, " ").trim() };
+  });
+  if (items.length < 3) return;
+  nav.innerHTML = `<p class="label">On this page</p><ol>${items.map((it, i) =>
+    `<li><a href="#${encodeURIComponent(it.id)}"><span>${String(i + 1).padStart(2, "0")}</span>${it.text.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]))}</a></li>`).join("")}</ol>`;
+  nav.hidden = false;
+  if (!("IntersectionObserver" in window)) return;
+  const links = new Map($$("a", nav).map((a) => [decodeURIComponent(a.hash.slice(1)), a]));
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const id = e.target.id || e.target.closest("section[id]")?.id;
+      links.forEach((a, k) => (k === id ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current")));
+    }
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  $$("h2", doc).forEach((h) => io.observe(h));
+}
+
 /* ---- boot ---------------------------------------------------------------- */
 splitName();
 initReveal();
@@ -386,4 +449,6 @@ initSpotlight();
 initTree();
 $$("canvas.field").forEach(initField);
 initTicker();
+initReadouts();
+initDocToc();
 const yr = $("#yr"); if (yr) yr.textContent = new Date().getFullYear();
