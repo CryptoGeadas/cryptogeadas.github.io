@@ -387,8 +387,9 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 @media (min-width: 720px) { .stat-panel { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1180px) { .stat-panel { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
 .stat-cell { display: flex; flex-direction: column; gap: 0; padding: 22px 16px 24px; background: var(--bg); }
-.stat-tag { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--faint); }
-.stat-tag::before { content: ""; width: 10px; height: 2px; background: var(--theme, var(--accent)); flex: none; }
+/* Tags reserve two lines, so the numbers below line up even when one tag wraps. */
+.stat-tag { display: flex; align-items: flex-start; gap: 8px; min-height: 2.7em; line-height: 1.35; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--faint); }
+.stat-tag::before { content: ""; width: 10px; height: 2px; margin-top: calc(0.675em - 1px); background: var(--theme, var(--accent)); flex: none; }
 .stat-num { margin: 16px 0 10px; font-family: var(--font-mono); font-size: clamp(28px, 2.9vw, 40px); font-weight: 500; letter-spacing: -0.04em; line-height: 1; white-space: nowrap; color: var(--fg); }
 .stat-unit { font-size: 0.42em; letter-spacing: 0; color: var(--muted); font-weight: 400; margin-left: 4px; }
 .stat-text { font-size: 13px; line-height: 1.45; color: var(--muted); text-wrap: pretty; }
