@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 50" width="74" height="50" role="img" aria-label="BG">
-  <!-- sapphire shadow layer -->
-  <polygon points="16,8 68,8 60,46 8,46" fill="#2563EB"/>
-  <!-- slate primary field -->
-  <polygon points="12,4 64,4 56,42 4,42" fill="#161B26" stroke="#2A3040" stroke-width="1"/>
-  <!-- BG lettermark, extra-bold -->
-  <text x="33" y="31" text-anchor="middle"
-        font-family="Sora, ui-sans-serif, system-ui, sans-serif" font-weight="800"
-        font-size="21" letter-spacing="0.5" fill="#FFFFFF">BG</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="b.">
+  <!-- Site v2 favicon: lowercase b with a mint full stop, echoing the headline full stops.
+       Drawn with shapes (no text), so it looks the same where web fonts don't load. -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" fill="#111813" stroke="#2e3d34"/>
+  <g fill="none" stroke="#e8ece9" stroke-width="3.2" stroke-linecap="round">
+    <path d="M9.5 6.5v18.5"/>
+    <circle cx="14.6" cy="19.6" r="5.2"/>
+  </g>
+  <circle cx="24.6" cy="23.2" r="2.7" fill="#7ee0a8"/>
 </svg>
