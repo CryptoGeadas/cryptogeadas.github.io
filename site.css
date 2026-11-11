@@ -165,6 +165,9 @@ a.panel:hover { border-color: var(--accent); color: var(--fg); }
 .badge-live { color: var(--accent); }
 .badge-live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 20%, transparent); }
 .badge-muted { color: var(--muted); }
+/* "Run locally": a tool you install, not a live page. Same shape as Live, neutral colour. */
+.badge-local { color: var(--fg-2); }
+.badge-local::before { content: ""; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid currentColor; box-sizing: border-box; }
 .badge-down { color: var(--warn); }
 
 .chip {
@@ -577,6 +580,8 @@ a.card:hover .tool-card-foot .cta { color: var(--accent); }
 .log-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
 .log-head .note { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .card-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+/* Four cards: two by two instead of three plus one alone. */
+@media (min-width: 760px) { .card-grid-wide.two-by-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Live tool panel (build log) */
 .tool-panel { display: flex; flex-direction: column; }
@@ -590,6 +595,15 @@ a.card:hover .tool-card-foot .cta { color: var(--accent); }
 .tool-q { font-family: var(--font-body); font-size: 18px; line-height: 1.42; letter-spacing: -0.01em; color: var(--fg); text-wrap: pretty; }
 .tool-desc { font-size: 14.5px; line-height: 1.6; color: var(--muted); text-wrap: pretty; }
 .tool-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 8px; }
+
+/* Video on a tool page (trading journal) */
+.video-frame { margin: 8px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.video-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--border-strong); border-radius: var(--r-panel); background: var(--panel); }
+.video-frame figcaption { font-family: var(--font-mono); font-size: 12px; color: var(--faint); }
+
+/* Copy-paste prompt with a copy button */
+.prompt-box { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; margin: 18px 0; padding: 18px 20px; border: 1px solid var(--border-strong); border-radius: var(--r-panel); background: var(--panel); }
+.prompt-box pre { margin: 0; font-family: var(--font-mono); font-size: 14.5px; line-height: 1.6; color: var(--fg); white-space: pre-wrap; overflow-wrap: anywhere; }
 
 /* Research panel link */
 .research-panel {
@@ -791,6 +805,8 @@ a.card:hover .tool-card-foot .cta { color: var(--accent); }
 .sum-k { display: flex; align-items: center; gap: 8px; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--faint); }
 .sum-k::before { content: ""; width: 10px; height: 2px; background: var(--accent); flex: none; }
 .sum-big { margin-top: 12px; font-size: clamp(40px, 4vw, 48px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; color: var(--fg); }
+/* Words, not a number: body font, smaller, so a phrase doesn't look oversized. */
+.sum-big.is-text { font-family: var(--font-body); font-size: clamp(26px, 2.6vw, 30px); font-weight: 600; letter-spacing: -0.03em; }
 .sum-note { margin-top: 10px; font-family: var(--font-body); font-size: 13.5px; line-height: 1.5; color: var(--muted); }
 .sum-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--border); }
 .sum-grid > div { padding: 14px 16px; min-width: 0; }

@@ -45,16 +45,16 @@
       <p class="standfirst">Tools for questions I actually have as a DeFi user.</p>
       <div class="meta-row">
         <span><span class="accent">crypto-tools</span> <span class="muted">· Personal batch, started Sep 2026</span></span>
-        <span class="muted"><span class="up">3</span> live · <span class="fg">1</span> research</span>
+        <span class="muted"><span class="up">3</span> live · <span class="fg">1</span> run locally · <span class="fg">1</span> research</span>
       </div>
     </section>
 
     <section class="log-section" aria-labelledby="live-title">
       <div class="log-head">
-        <h2 class="label" id="live-title">01 / Live tools</h2>
-        <p class="note"><span class="up">●</span> Refreshed automatically from DefiLlama</p>
+        <h2 class="label" id="live-title">01 / Tools</h2>
+        <p class="note"><span class="up">●</span> Live tools refresh automatically from DefiLlama</p>
       </div>
-      <div class="card-grid-wide">
+      <div class="card-grid-wide two-by-two">
         <article class="panel tool-panel">
           <div class="tool-panel-bar"><span>/defi-yield-scanner/</span><span class="badge badge-live">Live</span></div>
           <div class="tool-panel-body">
@@ -97,6 +97,18 @@
             </div>
           </div>
         </article>
+        <article class="panel tool-panel">
+          <div class="tool-panel-bar"><span>/trading-journal/</span><span class="badge badge-local">Run locally</span></div>
+          <div class="tool-panel-body">
+            <h3>Trading Journal</h3>
+            <p class="tool-q">"What did my trading actually make, after fees and funding?"</p>
+            <p class="tool-desc">Runs on your own computer. Installed with one prompt to your coding agent; your trades and keys never leave your machine.</p>
+            <div class="tool-actions">
+              <a class="btn btn-primary btn-sm" href="/trading-journal/">How to run it →</a>
+              <a class="btn btn-sm" href="https://github.com/CryptoGeadas/trading-journal" rel="noopener" target="_blank">Source ↗</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -127,7 +139,7 @@
       <ol class="panel steps">
         <li><span class="n">01</span><h3>Grill the idea</h3><p>Before any code, I question the idea hard: who decides what with it, and what it has to beat to be worth using.</p></li>
         <li><span class="n">02</span><h3>Prototype on real data</h3><p>A throwaway probe on live data with a go/no-go test. Ideas that fail the test stop here.</p></li>
-        <li><span class="n">03</span><h3>Ship small and automated</h3><p>A scheduled job pulls DefiLlama, a pure pipeline applies the opinion, and a static site publishes it. Everything is open source.</p></li>
+        <li><span class="n">03</span><h3>Ship small and automated</h3><p>Public data goes through a scheduled job and a static site. Tools that need your own data run on your computer. Everything is open source.</p></li>
       </ol>
     </section>
   </main>

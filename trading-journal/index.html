@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Trading Journal · Bernardo Geadas</title>
+  <meta name="description" content="A crypto trading journal that runs on your own computer. Install it with one prompt to your coding agent.">
+  <meta name="theme-color" content="#0c110e">
+  <link rel="icon" href="/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+  <link rel="preload" as="image" href="/trading-journal/journal-video-poster.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="ticker" aria-label="Live numbers from my tools">
+      <span class="ticker-label">LIVE</span>
+      <div class="ticker-items" data-ticker>
+        <a class="ticker-item" href="/defi-yield-scanner/" data-tick="scanner"><span class="k">Best stable yield</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-count"><span class="k">RWA funds classified</span><span class="v">—</span><span class="n"></span></a>
+        <a class="ticker-item" href="/tokenized-rwa-tracker/" data-tick="rwa-unclassified"><span class="k">Unclassified, in review</span><span class="v">—</span><span class="n"></span></a>
+      </div>
+      <span class="ticker-time" data-live-time>● —</span>
+    </div>
+    <div class="site-nav-row">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/#about">About</a>
+        <a href="/#experience">Experience</a>
+        <a href="/tools/" aria-current="page">Tools</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a class="btn btn-sm site-cta" href="mailto:bernardofgeadasj@gmail.com">Email me</a>
+    </div>
+  </header>
+
+  <main id="main" class="tool-main">
+    <div class="tool-hero">
+      <div class="tool-hero-copy">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">HOME</a><span aria-hidden="true">/</span><a href="/tools/">BUILD LOG</a><span aria-hidden="true">/</span><span aria-current="page">TRADING JOURNAL</span></nav>
+        <div class="tool-kicker"><span>T / 04</span><span class="badge badge-local">Run locally</span></div>
+        <h1>Trading Journal</h1>
+        <p class="tool-question">"What did my trading actually make, after fees and funding?"</p>
+        <p class="tool-sub">A trading journal that runs <strong>on your own computer</strong>. It reads your trade history from your exchanges with read-only keys and shows your real PnL, fees, funding, patterns and notes. Nothing is hosted, so there is no account and no server.</p>
+        <div class="tool-links">
+          <a class="btn btn-primary btn-sm" href="#install">Install it in one prompt ↓</a>
+          <a class="btn btn-sm" href="https://github.com/CryptoGeadas/trading-journal" rel="noopener" target="_blank">Source ↗</a>
+        </div>
+      </div>
+      <aside class="sum-panel" aria-label="At a glance">
+        <div class="sum-h"><span>At a glance</span></div>
+        <div class="sum-b">
+          <p class="sum-k">Runs on</p>
+          <p class="sum-big is-text">Your computer</p>
+          <p class="sum-note">Windows, macOS or Linux with Python 3.11 or newer. Your coding agent checks this for you.</p>
+        </div>
+        <div class="sum-grid">
+          <div><b>3</b><span>exchanges: Binance, Gate.io, Kraken</span></div>
+          <div><b>0</b><span>accounts or servers needed</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <figure class="video-frame">
+      <video src="/trading-journal/journal-video.mp4" poster="/trading-journal/journal-video-poster.jpg" controls muted playsinline preload="metadata" aria-label="30-second video: installing the journal with one prompt, then a tour on demo data"></video>
+      <figcaption>30 seconds, no sound. The journal on demo data.</figcaption>
+    </figure>
+
+    <div class="doc-layout">
+      <div class="doc">
+        <h2 id="install">Install it in one prompt</h2>
+        <p>You don't need to type terminal commands. Open Claude Code, Codex, Cursor or a similar coding agent in an empty folder and paste this:</p>
+        <div class="prompt-box">
+          <pre id="journal-prompt">Install and start the trading journal from https://github.com/CryptoGeadas/trading-journal on this computer. Follow the AGENTS.md file in that repository step by step, and offer me the demo data when it's running.</pre>
+          <button class="btn btn-sm" type="button" data-copy="#journal-prompt">Copy prompt</button>
+        </div>
+        <p>The agent checks Python, installs the journal, starts it and opens it in your browser. It then offers demo data, so you can look around before you connect anything. The repository's <a href="https://github.com/CryptoGeadas/trading-journal/blob/main/AGENTS.md" rel="noopener" target="_blank">AGENTS.md</a> holds the exact steps and the rules the agent must follow. For example, it never asks for your API keys in the chat.</p>
+
+        <h2 id="safety">Safety facts</h2>
+        <ul>
+          <li><strong>Runs on your computer.</strong> Only your own computer can open the journal. The page loads nothing from the internet: fonts and the chart library are bundled. The only outside calls go to the exchanges you connect.</li>
+          <li><strong>Your keys stay local.</strong> You type API keys into the journal's own Exchanges page, never into a chat. They are stored encrypted in your data folder and used only to read trades.</li>
+          <li><strong>It only reads.</strong> The code has no function that places, changes or cancels orders, or moves funds.</li>
+          <li><strong>Use read-only keys.</strong> On Binance the journal reads the key's permissions and refuses a key that can withdraw or transfer. Gate.io and Kraken don't report a key's permissions, so there you must make sure withdrawals are off yourself. The setup page says so.</li>
+        </ul>
+
+        <h2 id="features">What it does</h2>
+        <ul>
+          <li><strong>Sync</strong> with a button or every 6 hours, with clear errors when an exchange refuses a key.</li>
+          <li><strong>PnL</strong> for spot and futures, longs and shorts, with fees in any coin and funding as its own line. Breakdowns by pair, exchange, strategy, emotion, month and week add up to the total.</li>
+          <li><strong>Trades</strong> with notes, emotion tags, ratings and up to two chart screenshots each.</li>
+          <li><strong>Patterns:</strong> equity curve, win rate, profit factor, streaks, time of day and hold times.</li>
+          <li><strong>Export</strong> to CSV, Excel or a ZIP with screenshots, plus one-click backups.</li>
+        </ul>
+        <p class="muted">Open source. Informational only, not financial advice.</p>
+      </div>
+    </div>
+
+    <nav class="tool-nav" aria-label="Other tools">
+      <a href="/tools/">← All tools</a>
+      <span><a href="https://github.com/CryptoGeadas/trading-journal" rel="noopener" target="_blank">Source on GitHub ↗</a></span>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-top">
+      <a class="site-logo" href="/">BERNARDO GEADAS</a>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="/tools/">Tools</a>
+        <a href="/research/unlocks-dont-dump/">Research</a>
+        <a href="mailto:bernardofgeadasj@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/bernardo-geadas" rel="noopener" target="_blank">LinkedIn</a>
+        <a href="https://github.com/CryptoGeadas" rel="noopener" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="site-footer-bottom">
+      <span class="data-line">Runs on your computer · Not financial advice</span>
+      <span class="credit">© 2026 Bernardo Geadas</span>
+    </div>
+  </footer>
+
+  <script src="/site.js" type="module"></script>
+  <script type="module">
+    // Copy buttons: copy the text of the element named in data-copy.
+    for (const btn of document.querySelectorAll("[data-copy]")) {
+      const label = btn.textContent;
+      btn.addEventListener("click", async () => {
+        const text = document.querySelector(btn.dataset.copy).textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.textContent = "Copied ✓";
+        } catch {
+          // No clipboard access (old browser or blocked): select the text so Ctrl+C works.
+          const range = document.createRange();
+          range.selectNodeContents(document.querySelector(btn.dataset.copy));
+          getSelection().removeAllRanges(); getSelection().addRange(range);
+          btn.textContent = "Press Ctrl+C";
+        }
+        setTimeout(() => (btn.textContent = label), 2000);
+      });
+    }
+  </script>
+</body>
+</html>
