@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
-# Joins raw/<clip>.webm (cut at the marks in raw/<clip>.json) into the hero loop:
-# ../../assets/hero-tools.mp4 (h264, muted, 1280x720) and ../../assets/hero-tools-poster.jpg.
+# Joins recorded clips into one hero loop.
+#   bash build.sh <name> <clip> [<clip> ...]
+# Reads raw/<clip>.webm cut at the marks in raw/<clip>.json, crossfades them, and writes
+# out/hero-<name>.mp4 (h264, muted, 1280x720) and out/hero-<name>-poster.jpg.
+# The site uses ../../assets/hero-tools.mp4: copy the chosen variant there.
 set -euo pipefail
 cd "$(dirname "$0")"
-CLIPS=(scanner rwa fundamentals)
-SPEED=1.15   # plays the recordings a little faster
-FADE=0.5     # crossfade between clips, seconds
-OUT=../../assets
+NAME=$1; shift
+CLIPS=("$@")
+SPEED=${SPEED:-1.15}   # plays the recordings a little faster
+FADE=0.5               # crossfade between clips, seconds
+OUT=out
+mkdir -p "$OUT"
 
 inputs=(); filters=""; durs=()
 for i in "${!CLIPS[@]}"; do
@@ -18,17 +23,19 @@ for i in "${!CLIPS[@]}"; do
   filters+="[$i:v]setpts=PTS/$SPEED,fps=30,format=yuv420p,settb=AVTB[v$i];"
 done
 
-# Chain crossfades: v0 x v1 -> x01, x01 x v2 -> out.
-off=$(node -p "${durs[0]}-$FADE")
-filters+="[v0][v1]xfade=transition=fade:duration=$FADE:offset=$off[x1];"
-off=$(node -p "$off+${durs[1]}-$FADE")
-filters+="[x1][v2]xfade=transition=fade:duration=$FADE:offset=$off[out]"
+# Chain crossfades: v0 x v1 -> x1, x1 x v2 -> x2, ...
+last="v0"; off=0
+for ((i = 1; i < ${#CLIPS[@]}; i++)); do
+  off=$(node -p "$off+${durs[$((i-1))]}-$FADE")
+  filters+="[$last][v$i]xfade=transition=fade:duration=$FADE:offset=$off[x$i];"
+  last="x$i"
+done
+filters+="[$last]null[out]"
 
 ffmpeg -v error -y "${inputs[@]}" -filter_complex "$filters" -map "[out]" -an \
-  -c:v libx264 -preset slow -crf 26 -profile:v high -pix_fmt yuv420p -movflags +faststart "$OUT/hero-tools.mp4"
+  -c:v libx264 -preset slow -crf 26 -profile:v high -pix_fmt yuv420p -movflags +faststart "$OUT/hero-$NAME.mp4"
 
-# Poster: a frame from the scanner clip with its panel open.
-ffmpeg -v error -y -ss "$(node -p "${durs[0]}-1")" -i "$OUT/hero-tools.mp4" -frames:v 1 -q:v 4 "$OUT/hero-tools-poster.jpg"
+# Poster: a frame one second before the end of the first clip.
+ffmpeg -v error -y -ss "$(node -p "${durs[0]}-1")" -i "$OUT/hero-$NAME.mp4" -frames:v 1 -q:v 4 "$OUT/hero-$NAME-poster.jpg"
 
-ffprobe -v error -show_entries format=duration,size -of compact "$OUT/hero-tools.mp4"
-ls -la "$OUT/hero-tools-poster.jpg"
+ffprobe -v error -show_entries format=duration,size -of compact "$OUT/hero-$NAME.mp4"

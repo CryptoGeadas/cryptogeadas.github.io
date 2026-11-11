@@ -1,5 +1,5 @@
 // bernardogeadas.com — home page only (v2 redesign).
-// 1) Background video in the hero: plays muted, with a pause/play button.
+// 1) Background video in the hero: plays muted while on screen.
 //    Respects prefers-reduced-motion (starts paused, shows the poster).
 // 2) Live mini-previews in the tool cards, read from the tools' own snapshots.
 // Progressive: with JS off the hero shows the poster and the cards show "—".
@@ -10,24 +10,11 @@ const $ = (s, el = document) => el.querySelector(s);
 /* ---- hero video ---------------------------------------------------------- */
 function initHeroVideo() {
   const video = $("[data-hero-video]");
-  const btn = $("[data-hero-toggle]");
-  if (!video || !btn) return;
-
-  const setState = (playing) => {
-    btn.setAttribute("aria-pressed", String(!playing));
-    btn.textContent = playing ? "❚❚ Pause background" : "▶ Play background";
-  };
-  const play = () => video.play().then(() => setState(true)).catch(() => setState(false));
-  const pause = () => { video.pause(); setState(false); };
-
-  btn.hidden = false;
-  btn.addEventListener("click", () => (video.paused ? play() : pause()));
-
-  if (REDUCED) { setState(false); return; }
+  if (!video || REDUCED) return; // reduced motion: the poster stays, nothing plays
   // Only play while the hero is on screen (saves CPU/battery further down the page).
   new IntersectionObserver(([e]) => {
-    if (e.isIntersecting && btn.getAttribute("aria-pressed") === "false") play();
-    else if (!e.isIntersecting && !video.paused) video.pause();
+    if (e.isIntersecting) video.play().catch(() => {}); // autoplay blocked: the poster stays
+    else if (!video.paused) video.pause();
   }, { threshold: 0.2 }).observe(video);
 }
 

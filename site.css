@@ -344,13 +344,14 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 }
 .intro.hero {
   position: relative; isolation: isolate; overflow: hidden;
-  display: flex; align-items: flex-end;
+  /* Text block centred, with the same space above and below it. */
+  display: flex; align-items: center;
   max-width: none;
   min-height: 540px;
-  padding: 72px 0 44px;
+  padding: 56px 0;
   border-bottom: 1px solid var(--border);
 }
-@media (min-width: 960px) { .intro.hero { min-height: 660px; padding: 120px 0 64px; } }
+@media (min-width: 960px) { .intro.hero { min-height: 660px; padding: 88px 0; } }
 .hero-media { position: absolute; inset: 0; z-index: 0; background: var(--panel); }
 .hero-media video, .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .hero-media.grade video, .hero-media.grade img { filter: grayscale(1) contrast(1.05) brightness(0.72); }
@@ -360,6 +361,28 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 @media (min-width: 960px) {
   .hero-media .scrim { background: linear-gradient(90deg, rgba(12,17,14,.94) 0%, rgba(12,17,14,.8) 42%, rgba(12,17,14,.3) 100%), linear-gradient(0deg, rgba(12,17,14,1) 0%, rgba(12,17,14,0) 30%); }
 }
+/* Option D, "ambient": the video is a soft, blurred backdrop (calm, like a photo). */
+.hero-media.ambient video { filter: grayscale(0.4) brightness(0.6) blur(4px); transform: scale(1.08); }
+/* Option F, "tilted": on wide screens the video is a tilted screen on the right that fades
+   into the page, so the text side stays clear. On narrow screens it lies flat and dim. */
+.hero-media.tilted { background: var(--bg); }
+.hero-media.tilted video { filter: grayscale(0.5) brightness(0.45); }
+@media (min-width: 960px) {
+  .hero-media.tilted {
+    -webkit-mask-image: linear-gradient(90deg, transparent var(--tilt-fade-a, 10%), #000 var(--tilt-fade-b, 45%)), linear-gradient(0deg, transparent 0%, #000 22%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(90deg, transparent var(--tilt-fade-a, 10%), #000 var(--tilt-fade-b, 45%)), linear-gradient(0deg, transparent 0%, #000 22%);
+    mask-composite: intersect;
+  }
+  .hero-media.tilted video {
+    /* Starts above the hero's top edge, so the screen bleeds off the top instead of leaving a gap. */
+    inset: -14% -3% auto auto; width: var(--tilt-w, 80%); height: 124%;
+    object-position: 30% center; border: 1px solid var(--border); border-radius: 12px;
+    transform: perspective(1400px) rotateY(-18deg) rotateX(6deg); transform-origin: right center;
+    filter: grayscale(0.5) brightness(0.62) blur(var(--tilt-blur, 1.5px));
+  }
+  .hero-media.tilted .scrim { background: linear-gradient(0deg, rgba(12,17,14,1) 0%, rgba(12,17,14,0) 25%); }
+}
 .hero-inner { position: relative; z-index: 2; width: 100%; display: grid; gap: 28px; }
 @media (min-width: 960px) { .hero-inner { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 56px; } }
 .hero-side { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
@@ -367,7 +390,6 @@ a.card:hover { border-color: var(--accent); color: var(--fg); }
 .hero-side .avail { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--fg-2); line-height: 1.45; }
 .hero-side .avail .dot-live { margin-top: 5px; }
 .hero-loc { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--fg-2); }
-.hero-pause { background: rgba(12,17,14,.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); font-family: var(--font-mono); font-size: 12px; }
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; color: var(--accent); }
 
 .intro-copy { display: flex; flex-direction: column; gap: 0; }
