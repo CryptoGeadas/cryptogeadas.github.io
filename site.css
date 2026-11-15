@@ -323,8 +323,8 @@ a.panel:hover { border-color: var(--accent); color: var(--fg); }
 
 /* Card grid + card (home tools, build log) */
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
-/* four tool cards: two by two from tablet width, so none sits alone on a row */
-@media (min-width: 760px) { .card-grid.two-by-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* four tool cards (home and build log): two by two from tablet width, so none sits alone on a row */
+@media (min-width: 760px) { .card-grid.two-by-two, .card-grid-wide.two-by-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .card {
   display: flex; flex-direction: column; gap: 12px;
   padding: 20px;
@@ -583,7 +583,6 @@ a.card:hover .tool-card-foot .cta { color: var(--accent); }
 .log-head .note { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .card-grid-wide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
 /* Four cards: two by two instead of three plus one alone. */
-@media (min-width: 760px) { .card-grid-wide.two-by-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Live tool panel (build log) */
 .tool-panel { display: flex; flex-direction: column; }
