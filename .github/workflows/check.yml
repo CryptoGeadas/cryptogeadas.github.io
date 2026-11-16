@@ -1,0 +1,17 @@
+name: check
+
+# Fails when a page's header or footer differs from the shared one (scripts/chrome).
+on:
+  push:
+  workflow_dispatch: {}
+
+jobs:
+  chrome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Every page has the shared header and footer
+        run: node --test scripts/chrome/chrome.test.mjs
