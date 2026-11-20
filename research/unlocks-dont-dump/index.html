@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Unlocks Don't Dump · Bernardo Geadas</title>
-  <meta name="description" content="The most repeated rule in crypto, 'sell before the token unlock', doesn't survive a baseline control. An event study of 669 unlocks.">
-  <meta property="og:title" content="Unlocks Don't Dump">
-  <meta property="og:description" content="An event study of 669 token unlocks: the drop was already happening.">
+  <title>Unlocks Dump Less Than You Think · Bernardo Geadas</title>
+  <meta name="description" content="An event study of 669 token unlocks: most of the drop around an unlock is the token's normal fall against BTC. A small extra drop may remain, but it is noisy.">
+  <meta property="og:title" content="Unlocks Dump Less Than You Think">
+  <meta property="og:description" content="669 token unlocks: most of the drop was already happening. What is left is small and noisy.">
   <meta property="og:type" content="article">
   <meta name="theme-color" content="#0c110e">
   <link rel="icon" href="/logo.svg" type="image/svg+xml">
@@ -43,27 +43,39 @@
   <main id="main" class="article-main">
     <header class="article-head">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">HOME</a><span aria-hidden="true">/</span><a href="/tools/">BUILD LOG</a><span aria-hidden="true">/</span><span aria-current="page">RESEARCH</span></nav>
-      <h1>Unlocks Don't <span class="accent">Dump.</span></h1>
-      <p class="standfirst">The most repeated rule in crypto, "sell before the token unlock", doesn't survive a baseline control.</p>
-      <p class="byline"><span>Bernardo Geadas</span><span>17 September 2026</span><span>Data: DefiLlama emissions and prices, 2020–2026</span></p>
+      <h1>Unlocks dump <span class="accent">less than you think.</span></h1>
+      <p class="standfirst">Most of the drop people blame on a token unlock is the token's normal fall against BTC. A small extra drop may remain, but it is too noisy to trade.</p>
+      <p class="byline"><span>Bernardo Geadas</span><span>17 September 2026, updated 20 November 2026</span><span>Data: DefiLlama emissions and prices, 2020–2026</span></p>
     </header>
 
     <article class="article-body">
-      <h2><span class="n">01</span>The claim</h2>
-      <p>Every cycle, the same advice goes around: a big token unlock is coming, so sell before the cliff and buy back the dump. People treat it as obvious. In aggregate it's also <strong>wrong</strong>. Unlocks aren't harmless, but the drop people blame on the unlock was already happening.</p>
-      <p>I pulled every discrete cliff unlock DefiLlama tracks: <strong>372 protocols and 22,168 historical unlock events</strong>. I priced each one against its token's own history and stripped out two things that fool the naked eye:</p>
-      <ol>
-        <li><strong>The market.</strong> If BTC fell 10% that week, that isn't the unlock. Every return here is measured <em>relative to BTC</em> over the same window.</li>
-        <li><strong>The token's own baseline decay.</strong> Alts bleed against BTC most weeks, unlock or not. The only honest question is whether an unlock adds anything <em>beyond that normal bleed</em>.</li>
-      </ol>
-      <p>Here's the answer across <strong>669 meaningful unlocks</strong>, each releasing at least 1% of circulating supply:</p>
-      <div class="panel key-finding">
-        <div class="big">+0.2%</div>
-        <p><strong>The excess return an unlock adds, over the token's own normal drift, is +0.2%.</strong> That's statistically indistinguishable from zero.</p>
-      </div>
-      <p>The −2.3% you see in the week around an unlock is real. But it's the same −2.3% the token was posting in weeks with <em>no</em> unlock at all.</p>
+      <p class="article-note"><strong>Update, 20 November 2026.</strong> The first version of this article said the unlock adds nothing (+0.2%). That was the result of one check. A stricter check in the same data, which the first version showed but did not explain, finds a small extra drop. This version reports both.</p>
 
-      <h2><span class="n">02</span>The one chart that says it</h2>
+      <h2><span class="n">01</span>The claim</h2>
+      <p>Every cycle, the same advice comes back: a big token unlock is coming, so sell before it and buy back after the drop. I wanted to see how much of that drop is really caused by the unlock.</p>
+      <p>I took every one-day (cliff) unlock that DefiLlama tracks: <strong>372 protocols and 22,168 unlock events</strong>. 3,480 of them had price data, and <strong>669 released at least 1% of the circulating supply</strong>. Those 669 are the ones I call meaningful. For each one I removed two things that make the drop look bigger than it is:</p>
+      <ol>
+        <li><strong>The market.</strong> If BTC fell 10% that week, the unlock did not cause it. Every return here is measured <em>against BTC</em> over the same days.</li>
+        <li><strong>The token's normal week.</strong> Most altcoins lose ground to BTC in most weeks, unlock or not. The question is whether the unlock week is worse than that.</li>
+      </ol>
+      <p>Here is what I found, for the week after the unlock (median of all unlocks in each row):</p>
+      <table class="panel data-table">
+        <thead><tr><th scope="col">Week after the unlock, against BTC</th><th scope="col">Median</th><th scope="col">Unlocks</th><th scope="col">Below zero</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Raw return</th><td class="down">−2.3%</td><td>669</td><td>55%</td></tr>
+          <tr><th scope="row">Minus the token's normal week</th><td class="up">+0.2%</td><td>669</td><td>49%</td></tr>
+          <tr><th scope="row">Minus its normal week in the same market, bull</th><td class="down">−1.4%</td><td>108</td><td>55%</td></tr>
+          <tr><th scope="row">Minus its normal week in the same market, bear</th><td class="down">−2.6%</td><td>240</td><td>58%</td></tr>
+        </tbody>
+      </table>
+      <p>The first check compares each unlock week with the token's normal week. On that check the unlock adds nothing: +0.2%, and about half of the unlocks did better than normal.</p>
+      <p>The second check is stricter. It compares the unlock week with the token's normal week <em>in the same kind of market</em>, bull or bear. On that check the unlock week is worse than normal in both: by 1.4% in bull markets and 2.6% in bear markets. But it only works for tokens with enough normal weeks in that market, which is 348 of the 669 unlocks, and the result is weak: 55–58% of unlocks did worse than normal, where 50% would mean no effect.</p>
+      <div class="panel key-finding">
+        <div class="big">0% to −2.6%</div>
+        <p><strong>The part of the drop that the unlock itself may cause, depending on the check.</strong> Most of the −2.3% people see is the token's normal fall against BTC. What is left is small, and not reliable from one unlock to the next.</p>
+      </div>
+
+      <h2><span class="n">02</span>The chart</h2>
     </article>
 
     <figure class="article-figure">
@@ -125,51 +137,52 @@
     </figure>
 
     <article class="article-body">
-      <p>This is an event study: <strong>669 unlocks stacked on top of each other</strong>, aligned at the unlock date (day 0). It shows the median token's cumulative return <em>versus BTC</em>, from two weeks before to a month after.</p>
-      <p>The token is already sliding into the unlock, by about <strong>−0.32% per day</strong>. The dashed line projects that pre-unlock trend forward: <em>what the price would do if the unlock changed nothing.</em></p>
-      <p>The solid line, which is what actually happens, <strong>lands right on the dashed line.</strong> At T+7 the real median is −2.3% against a −2.5% projection. At T+30 it's −8.4% against −9.9%. After the unlock, the token does slightly <strong>better</strong> than its own pre-unlock trend.</p>
-      <p><strong>There is no kink at the cliff.</strong> The slope through day 0 is the same as the week before. Whatever is dragging these tokens down, the unlock itself isn't a turning point.</p>
+      <p>This chart puts the <strong>669 unlocks on top of each other</strong>, lined up on the unlock date (day 0). It shows the median token's return <em>against BTC</em>, from two weeks before to a month after.</p>
+      <p>The tokens are already falling before the unlock, by about <strong>−0.32% a day</strong>. The dashed line continues that fall: it is what the price would do if the unlock changed nothing.</p>
+      <p>The solid line, what really happened, stays close to the dashed line. At T+7 the median is −2.3% against −2.5% on the dashed line. At T+30 it is −8.4% against −9.9%. The slope through day 0 is about the same as in the week before.</p>
+      <p>So on average there is no sudden break at the unlock. This chart uses the same tokens' fall in the two weeks before, not the stricter same-market check above, so it cannot rule out the small extra drop that check finds.</p>
 
       <h2><span class="n">03</span>"But surely in a bear market…"</h2>
-      <p>That was my prior too, and the raw numbers seem to back it hard:</p>
+      <p>That was my guess too, and the raw numbers seem to agree:</p>
       <table class="panel data-table">
-        <thead><tr><th scope="col">Median return T-1 → T+7 (vs BTC)</th><th scope="col">Bull</th><th scope="col">Bear</th></tr></thead>
-        <tbody><tr><th scope="row">Raw</th><td class="up">+0.9%</td><td class="down"><strong>−4.3%</strong></td></tr></tbody>
+        <thead><tr><th scope="col">Median return T-1 → T+7 (against BTC)</th><th scope="col">Bull</th><th scope="col">Bear</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Raw</th><td class="up">+0.9%</td><td class="down"><strong>−4.3%</strong></td></tr>
+          <tr><th scope="row">Minus the normal week in the same market</th><td class="down">−1.4%</td><td class="down">−2.6%</td></tr>
+        </tbody>
       </table>
-      <p>A five-point gap looks like proof that unlocks are dangerous in bear markets. It's a trap. In a bear market, alts bleed against BTC harder <em>regardless of unlocks</em>: quiet-week drift is −2.25% a week vs BTC. So compare each bear-market unlock with that token's <em>normal bear-market week</em>:</p>
-      <table class="panel data-table">
-        <thead><tr><th scope="col">Median excess over same-regime baseline</th><th scope="col">Bull</th><th scope="col">Bear</th></tr></thead>
-        <tbody><tr><th scope="row">Controlled</th><td class="down">−1.4%</td><td class="down">−2.6%</td></tr></tbody>
-      </table>
-      <p>The five-point gap collapses to <strong>1.1 points.</strong> Roughly 80% of "unlocks are worse in bear markets" is really "<em>everything</em> is worse in bear markets." What's left is a small residual, and it doesn't behave. Sorting by unlock size gives non-monotonic noise (mid-size bear unlocks are actually <em>positive</em>, +0.8%), and the residual effect has about a 55% hit rate. That's a coin flip, not a trade.</p>
+      <p>In the raw numbers, bear-market unlocks look 5.2 points worse than bull-market ones. But in a bear market altcoins fall harder against BTC in every week: the normal week is −1.7% in bull markets and −2.25% in bear markets. Once each unlock is compared with its own market's normal week, the gap between bull and bear shrinks to <strong>1.1 points</strong>. So about 80% of "unlocks are worse in bear markets" is really "everything is worse in bear markets".</p>
+      <p>What is left is the small extra drop from section 01, in both kinds of market. Sorting it by unlock size does not give a clear pattern: mid-size bear-market unlocks (3–6% of supply) are even slightly positive (+0.8%), while large ones are −2.7%. An effect that does not grow with the size of the unlock is hard to trust.</p>
 
-      <h2><span class="n">04</span>What to actually do with this</h2>
+      <h2><span class="n">04</span>What this means in practice</h2>
       <ul>
-        <li><strong>Stop paying the "unlock tax."</strong> Selling ahead of a scheduled unlock and buying the "dump" is, on average, selling a normal week and buying a normal week, minus two sets of fees and slippage.</li>
-        <li><strong>The unlock isn't the risk; the trend is.</strong> A token grinding −0.3% a day against BTC will keep grinding whether or not tokens vest this Tuesday. Trade the trend and ignore the calendar entry.</li>
-        <li><strong>If you fear anything, fear thin floats, not big headlines.</strong> Even there, the effect in this dataset is too weak and noisy to size a position around. Honestly, it mostly doesn't matter.</li>
+        <li><strong>Selling before every unlock costs more than it saves.</strong> Most of the drop would have happened anyway. The extra drop, if it is real, is about 1–3% in a week and only shows in 55–58% of cases. Two sets of trading fees and slippage can take most of that.</li>
+        <li><strong>The trend matters more than the date.</strong> A token that loses 0.3% a day against BTC keeps losing it whether or not tokens unlock this week.</li>
+        <li><strong>Unlocks are not harmless.</strong> In this data the unlock week is, if anything, a little worse than a normal week. It is a small risk to know about, not a reliable trade.</li>
       </ul>
 
       <section class="panel method" aria-labelledby="method-title">
         <div class="method-head">
           <span class="label">05 / APPENDIX</span>
-          <h2 id="method-title">Method, limits and honesty</h2>
-          <p class="mono accent">So you can shoot holes in it.</p>
+          <h2 id="method-title">Method and limits</h2>
+          <p class="mono accent">So you can check it.</p>
         </div>
         <dl>
           <div><dt>Events</dt><dd><p>Discrete <strong>cliff</strong> unlocks from DefiLlama's <code>unlockEvents</code>. Continuous or linear vesting is excluded because it isn't an event. Size = cliff tokens ÷ circulating supply at that moment, with circulating supply derived as cumulative unlocked to date. "Meaningful" means at least 1% of circulating; n = 669 with price coverage.</p></dd></div>
           <div><dt>Returns</dt><dd><p>Daily prices from DefiLlama's coins API, measured T-1 → T+k and <strong>market-adjusted</strong> by subtracting BTC's return over the same window.</p></dd></div>
-          <div><dt>Baseline</dt><dd><p>For each token, the median 7-day forward market-adjusted return on <em>quiet</em> days (no unlock within ±10 days), computed <strong>separately for bull and bear</strong> regimes. The regime is BTC above or below its own 200-day moving average on the unlock date.</p></dd></div>
+          <div><dt>Normal week</dt><dd><p>For each token, the median 7-day return against BTC on <em>quiet</em> days (no unlock within ±10 days). The first check uses one normal week per token, from all its quiet days. The stricter check uses one for bull markets and one for bear markets, and the unlock is compared with the one for its own market. The market is bull when BTC is above its 200-day moving average on the unlock date, bear when it is below. A token needs enough quiet days in that market for the stricter check, so it covers 348 of the 669 unlocks (108 bull, 240 bear).</p></dd></div>
           <div><dt>Median, not mean</dt><dd><p><strong>I used the median, not the mean.</strong> The mean is useless here: a handful of small-caps that 10×'d after an unlock drag the average to <em>+130%</em>, which describes survivorship, not unlocks.</p></dd></div>
           <div><dt>Known limits</dt><dd>
             <p>(1) Tokens that unlock monthly produce overlapping windows, so the effective sample is smaller than it looks.</p>
-            <p>(2) Survivorship: tokens that died after an unlock may be missing from current data. If anything that <em>understates</em> the downside, yet the effect is still about zero.</p>
-            <p>(3) One asset class (DefiLlama-tracked tokens) and one era (2020–2026, about one and a half cycles).</p>
-            <p>(4) I deliberately <strong>stopped slicing</strong> after regime and size. Keep cutting the data by liquidity, sector, chain and so on, and eventually some cell looks tradeable by pure chance. That isn't a finding, it's p-hacking.</p>
+            <p>(2) Survivorship: tokens that died after an unlock may be missing from current data. That would make unlocks look less harmful than they are.</p>
+            <p>(3) The two checks disagree: +0.2% on the first, −1.4% and −2.6% on the stricter one, which covers only about half of the unlocks. I report both instead of picking one.</p>
+            <p>(4) One asset class (DefiLlama-tracked tokens) and one period (2020–2026, about one and a half market cycles).</p>
+            <p>(5) I <strong>stopped splitting the data</strong> after market and size. If you keep cutting it by liquidity, sector, chain and so on, some group will look tradeable by pure chance. That would not be a finding.</p>
+            <p>(6) The unlock data came from DefiLlama's emissions API, which became paid in late September 2026. The numbers here are from the run on 17 September 2026 and have not been rerun since.</p>
           </dd></div>
         </dl>
       </section>
-      <p class="closing">The point isn't that unlocks can <em>never</em> move a specific coin. It's that the general, tradeable rule everyone repeats, "unlocks dump, so sell the cliff", isn't in the data once you stop blaming the unlock for a decline that was already under way.</p>
+      <p class="closing">Unlocks can move a single coin, and on average the unlock week may be a little worse than normal. But most of the drop people point to was already happening, and the rest is too small and too unreliable to build a rule like "sell before every unlock" on.</p>
       <div class="article-actions"><a class="btn btn-primary" href="/tools/">← Back to the build log</a></div>
     </article>
   </main>
