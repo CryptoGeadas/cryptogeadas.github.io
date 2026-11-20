@@ -276,14 +276,16 @@ a.panel:hover { border-color: var(--accent); color: var(--fg); }
   color: var(--faint);
   white-space: nowrap;
 }
-/* NEW: persistent contact action in the nav row (home page) */
-.site-cta { margin-left: 8px; }
+/* Contact actions in the nav row: Email me + Download CV, kept together */
+.site-cta { display: flex; gap: 8px; margin-left: 8px; }
 @media (max-width: 1099px) { .site-tagline { display: none; } }
 /* Phones: nav drops to its own row under the logo; the CTA stays beside the logo. */
 @media (max-width: 859px) {
   .site-nav { order: 3; width: 100%; margin-left: 0; gap: 0 22px; border-top: 1px solid var(--border); }
   .site-cta { margin-left: auto; }
 }
+/* Small phones: Download CV only, so the logo and button share one row (Contact stays in the nav) */
+@media (max-width: 479px) { .site-cta-email { display: none; } }
 
 /* ---- site footer -------------------------------------------------------- */
 .site-footer { background: var(--sunken); border-top: 1px solid var(--border); }
